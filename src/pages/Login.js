@@ -84,7 +84,7 @@ const Login = () => {
       <div className="form-items" alignment="center">
      
         <MDBIcon fas icon="user-circle" className="fa-2x" />
-        <h5>Sign In</h5>
+        <h5>Sign In All</h5>
         <MDBCardBody>
           <MDBValidation onSubmit={handleSubmit} noValidate className="row g-3">
             <div className="col-md-12">
