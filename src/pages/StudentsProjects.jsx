@@ -1,90 +1,99 @@
-import React from 'react'
-import jsPDF from 'jspdf'
-import {Link} from 'react-router-dom'
+
+import React, { useEffect } from "react";
+import {MDBBtn, MDBCol,MDBIcon, MDBContainer, MDBRow, MDBTypography } from "mdb-react-ui-kit";
+import { useDispatch, useSelector } from "react-redux";
+import Spinner from "../components/Spinner";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { getProjects, getProjectsByUser } from "../redux/features/projectSlice";
+import Projects from "../components/Projects";
+import Login from "./Login";
+import {toast} from 'react-toastify'
+import { useNavigate } from "react-router-dom";
+import Admin from "./Admin";
+import Caretaker from "./Caretaker";
+import Teanant from "./Teanant";
+import { deleteTour } from "../redux/features/projectSlice";
+import { useState } from "react";
+import axios from "axios";
+import Edit from "./Edit";
+
 // import {AiOutlineArrowRight} from 'react-icons/ai'
 import moment from 'moment'
-const StudentsProjects = ({_id,createdAt,name,aptType,apartment,houseNo
-,amount,plotA,plotB,idNo
-}) => {
+const StudentsProjects = () => {
+  const [tenants,setTenants]= useState({})
+  const [clear,setClear]= useState([])
+    const navigate=useNavigate()
+  const dispatch=useDispatch()
+  const {id}=useParams()
+  // const { Tours} = useSelector((state) => ({ ...state.tour }));
+  const {user}=useSelector((state)=>({...state.auth}))
+  const {projects,loading}=useSelector((state)=>({...state.project}))
+  console.log(projects);
+const userId =user?.result?._id
+console.log(userId);
+// useEffect(() => {
+// if(userId){
+//  dispatch(getProjectsByUser(userId)) 
+// }
 
-const a=()=>{
-if(aptType==='1bedroom'){
-  return amount-plotA
-}else return amount-plotB
-}
-console.log('rebt ', );
-  const doc= ()=>{
-    var pdf =new jsPDF('landscape', 'px','a4','false');
-    
-    
-    pdf.text(30,10,`month of ${moment().format('MM YYYY ')}`)
-    pdf.text(30,30,`name: ${name}`)
-    pdf.text(30,50,`Amount: ${amount}`)
-    pdf.text(30,70,`Apartment: ${apartment}`)
-    pdf.text(30,85,`name: ${houseNo}`)
-    pdf.text(30,100,`balance: ${amount-plotA}`)
-    
-    
-    pdf.save('recipt.pdf')
-  }
+// }, [userId])
+
+
+
   return (
     <div className="tenant-cards">
       <div className="details-card">
         <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
     
-      {/* <h4> month of {createdAt}</h4> */}
-      <div className="align">
+        {projects && projects?.map((items)=>{
+          return(
+            
+            <div className='datas'>
+              
+              <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
 
-        <p className='cardtitle'>Apartment:</p>
-        <p> {apartment}</p>
+{/* <p>Name: {items.name}</p>
+<p> RentPaid: {items.amount}</p>
+<p>ApartMent: {items.apartment}</p>
+<p> HouseNo: {items.houseNo}</p>
+<p>IdNo: {items.idNo}</p>
+<p>WaterFee: {items.waterFee}</p>  */}
+<p className='rentss'> <p> Name:   </p> <p>{items.name}</p> </p>
+<p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
+<p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
+<p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
+<p className='rentss'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
+<p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
+<p className='rentss'> <p>Last Water Read:</p> <p>{items.lastRead}</p> </p> 
+<p className='rentss'> <p>Water bill:</p> <p>{items.waterFee}</p> </p> 
 
-      </div>
-      <div className="line"></div>
-      <div className="align">
-        <p className='cardtitle'>Name:</p>
-        <p>{name}</p>
-      </div>
-      <div className="line"></div>
-   
-    {/* <div className="line"></div> */}
-    
-      <div className="align">
-        <p className='cardtitle'>Id Number:</p>
-        <p> {idNo}</p> 
-      </div>
-      <div className="line"></div>
-     <div className="align">
-      <div id="p"className='cardtitle'>rent Paid</div>
-      <p> {amount}</p>
-     </div>
-      <div className="line"></div>
-    
-    {/* <div className="line"></div> */}
-    <div className="align" >
-      <p id='balance' className='cardtitle'> balance:</p>
-      {plotA-amount}
-      <br />
-      <div>
-      
-      
-      {/* projectadded on {createdAt} */}
-     {/* <img src={imageFile} alt="" />  */}
-     
-     
-     <Link to ={`/project/${_id}`}>
+<p className='rentss'> <p>Method of payment:</p> <p>{items.payment}</p> </p> 
+<p className='rentss'> <p>Date of Payment:</p> <p>{items.datePaid}</p> </p> 
+<p className='rentss'> <p>Type of the rental:</p> <p>{items.aptType}</p> </p> 
+<p className='rentss'> <p>Wifi Fee:</p> <p>{items.wifi}</p> </p> 
+<p className='rentss'> <p>Arrears:</p> <p>{items.arrears}</p> </p> 
+<p className='rentss'> <p>Phone Number:</p> <p>{items.phone}</p> </p> 
+<p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
+<p className='rentss'> <p>Total Balances:</p> <p>{items.balance
+}</p> </p> 
+<p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
+<div className="buttons">
+{items.balance==='' ? <><button className="color1">No Balance</button></>
+:<><button className="color2">Balance</button></>}
+</div>
+<div className="buttons">
+
+    <button className="btn">
+    <Link to ={`/users/${items._id}`}>
       read more
      </Link>
-      </div>
-      
-      {/* <div className="icon">
-        <Link to='/milestone'>
-           <AiOutlineArrowRight/>
-        </Link>
-        </ div> */}
-    </div>
-    <button onClick={doc} className="btn" id='btnreceipt' >
-      Get Receipt
-     </button>
+    </button>
+
+             </div>
+            </div>
+          )
+         })}
+
    </div>
       {/* <Link to ='/'>
       home

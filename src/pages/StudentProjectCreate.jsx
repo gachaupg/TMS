@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { productsCreate } from '../redux/features/tourSlice';
 import { createProject, updateTour } from '../redux/features/projectSlice';
 import FileBase from "react-file-base64";
+import { io } from "socket.io-client";
 
 
 const StudentProjectCreate = () => {
@@ -73,7 +74,12 @@ useEffect(() => {
   }
 }, [error])
 
-
+useEffect(()=>{
+  const socket = io("http://localhost:8000");
+  console.log(socket.on("firstemit",(msg)=>{
+    console.log(msg);
+  }));
+},[])
 
 return (
  <>

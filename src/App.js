@@ -64,6 +64,7 @@ import Tenant4C from "./pages/Tenant4c";
 import Tenant4D from "./pages/Tenant4d";
 import Tenant5A from "./pages/Tenant5a";
 import All from "./pages/All";
+import StudentsProjects from "./pages/StudentsProjects";
 
 function App() {
   
@@ -97,7 +98,8 @@ function App() {
              <Route path="admincaretaker" element={<AdminCaretaker/>} />
              <Route index element={<AdminTenants/>} />
               </Route>
-              
+              <Route path="/rents" element={<StudentsProjects/>} />
+
              <Route path="/search" element={<All/>} />
 
               <Route path="/apartmentAr" element={<TenantA />} />

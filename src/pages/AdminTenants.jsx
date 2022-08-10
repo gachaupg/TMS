@@ -15,6 +15,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Profile from './Profile';
 import { deleteUser } from '../redux/features/authSlice';
 import moment from 'moment';
+import jsPDF from 'jspdf';
 const AdminTenants = () => {
   const [search,setSearch]=useState("")
     const dispatch=useDispatch()
@@ -39,6 +40,9 @@ if(result){
 
 
 }
+
+
+
 useEffect(()=>{
     async function fetchData(){
     try {
@@ -70,6 +74,7 @@ useEffect(()=>{
              
          {tours && tours?.map((items)=>{
           return(
+            
             <div className='datas'>
               
               <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>

@@ -39,7 +39,7 @@ const CaretakeMainPage = () => {
                 </button>
             </Link>
            
-            <Link to='/rent'>
+            <Link to='/rents'>
                     <button className="btn">
                     Rent
                     </button>

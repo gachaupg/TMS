@@ -1,4 +1,5 @@
 import axios from 'axios'
+import jsPDF from 'jspdf';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 
@@ -10,7 +11,7 @@ const TenantA = () => {
         try {
           const res= await axios.get('http://localhost:5000/stats/projects/singleab')
           setAdmin(  res.data)
-          console.log(admin);
+          console.log('admin',admin[0].name);
          } catch (error) {
           console.log(error);
           
@@ -18,6 +19,27 @@ const TenantA = () => {
         }
         fetchData()
           },[])
+
+
+          const {name,amount,apartment,houseNo,balance}=admin
+
+          console.log('rebt ', );
+            const doc= ()=>{
+              var pdf =new jsPDF('landscape', 'px','a4','false');
+              
+              
+              pdf.text(30,10,`month of ${moment().format('MM YYYY ')}`)
+              pdf.text(30,30,`name: ${admin[0].name}`)
+              pdf.text(30,50,`Amount: ${admin[0].amount}`)
+              pdf.text(30,70,`Apartment: ${admin[0].apartment}`)
+              pdf.text(30,85,`name: ${admin[0].houseNo}`)
+              pdf.text(30,100,`balance: ${admin[0].balance}`)
+              
+              
+              pdf.save('recipt.pdf')
+            }
+
+
 
   return (<>
     <h4 className='headers'>Apartment A all Rents Progress</h4>
@@ -50,7 +72,10 @@ const TenantA = () => {
               Balance:
               <p>{items.aptType==='1bedroom' ? items.plotA-items.amount: null}</p>
               <p>{items.aptType==='2bedroom' ? items.plotA-items.amount: null}</p>
-              
+              <button onClick={doc} className="btn" id='btnreceipt' >
+      Get Receipt
+     </button>
+          
               </div>
       )
     })}
