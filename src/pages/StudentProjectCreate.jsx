@@ -74,12 +74,7 @@ useEffect(() => {
   }
 }, [error])
 
-useEffect(()=>{
-  const socket = io("http://localhost:8000");
-  console.log(socket.on("firstemit",(msg)=>{
-    console.log(msg);
-  }));
-},[])
+
 
 return (
  <>
