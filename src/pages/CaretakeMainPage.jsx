@@ -6,6 +6,7 @@ import Vacations from './Vacations'
 import Complains from './Complains'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import Message from './Message'
 const CaretakeMainPage = () => {
     const {user}=useSelector((state)=>({...state.auth}))
   const {milestones}=useSelector((state)=>({...state.milestone}))
@@ -32,7 +33,9 @@ const CaretakeMainPage = () => {
     <div className="tenant-page">
         <h5>Hello {user?.result?.name}  </h5>
         <div className="tenant-header"> 
+        <Message/> 
         <Link to='/caretaker'>
+         
                 <button className='btn'>
                    Maintanance
                    

@@ -17,6 +17,18 @@ cors:{
 
 });
 
+io.on("connection",(socket)=>{
+  console.log(`User connected: ${socket.id}`);
+
+socket.on("join_room", (data)=>{
+  socket.join(data)
+});
+
+  socket.on("send_messange", (data)=>{
+    socket.to(data.room).emit("recied", data)
+  })
+})
+
 server.listen(3001, ()=>{
   console.log('sever is running');
 })
