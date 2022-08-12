@@ -3,12 +3,25 @@ import { io } from "socket.io-client";
 import ReactAudioPlayer from 'react-audio-player';
 import audio from '../audio/audio1.wav'
 const socket= io.connect('http://localhost:3001')
+const getLocalStorage = () => {
+  let user = localStorage.getItem('user');
+  if (user) {
+    return (user = JSON.parse(localStorage.getItem('user')));
+  } else {
+    return user;
+  }
+};
 
 const Message = () => {
-  const [message,setMessange]=useState('')
+
+
+  
+  const [message,setMessange]=useState(getLocalStorage(null))
   const [messages,setMessanges]=useState('')
   const [room,setRoom]=useState('')
-
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(message));
+  }, [message]);
 
   const joinRoom = () => {
     if (room !== "") {
