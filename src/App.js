@@ -21,6 +21,7 @@ import Caretaker from "./pages/Caretaker";
 import SingleProject from "./pages/SingleProject";
 import Error from "./pages/Error";
 import TenantDashboad from "./pages/TenantDashboad";
+import Message2 from './pages/Message2'
 import Vacation from "./pages/Vacation";
 import Complain from "./pages/Complain";
 import Rent from "./pages/Rent";
@@ -65,6 +66,7 @@ import Tenant4D from "./pages/Tenant4d";
 import Tenant5A from "./pages/Tenant5a";
 import All from "./pages/All";
 import StudentsProjects from "./pages/StudentsProjects";
+import Message from "./pages/Message";
 
 function App() {
   
@@ -122,6 +124,8 @@ function App() {
               <Route path="/4c" element={<Tenant4C/>} />
               <Route path="/4d" element={<Tenant4D />} />
               <Route path="/5a" element={<Tenant5A />} />
+              <Route path="/message" element={<Message />} />
+              <Route path="/message2" element={<Message2/>} />
 
               <Route path="/milestone" element={<Caretaker />} />
               <Route path="/mileProject" element={<MileProjects />} />

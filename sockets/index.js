@@ -20,12 +20,12 @@ cors:{
 io.on("connection",(socket)=>{
   console.log(`User connected: ${socket.id}`);
 
-socket.on("join_room", (data)=>{
-  socket.join(data)
-});
+// socket.on("join_room", (data)=>{
+//   socket.join(data)
+// });
 
   socket.on("send_messange", (data)=>{
-    socket.to(data.room).emit("recied", data)
+    socket.broadcast.emit("recied",data)
   })
 })
 

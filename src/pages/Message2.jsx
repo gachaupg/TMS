@@ -81,11 +81,11 @@ useEffect(()=>{
         }}
       /> */}
       {/* <button onClick={joinRoom}> Join Room</button> */}
-    {/* <textarea type="text" onChange={(e)=>setMessange(e.target.value)} />
+    <textarea type="text" onChange={(e)=>setMessange(e.target.value)} />
     
-    <button onClick={sendMessage}>Submit</button> */}
-    <p>Messange:{messages}</p>
-    {messages ? <audio src={audio} controls autoPlay />: null}
+    <button onClick={sendMessage}>Submit</button>
+    {/* <p>Messange:{messages}</p>
+    {messages ? <audio src={audio} controls autoPlay />: null} */}
     </div>
   )
 }

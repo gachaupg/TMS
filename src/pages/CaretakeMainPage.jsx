@@ -33,7 +33,7 @@ const CaretakeMainPage = () => {
     <div className="tenant-page">
         <h5>Hello {user?.result?.name}  </h5>
         <div className="tenant-header"> 
-        <Message/> 
+        
         <Link to='/caretaker'>
          
                 <button className='btn'>
@@ -57,6 +57,13 @@ const CaretakeMainPage = () => {
         
             <div className="tenant-header">
 
+            <Link to='/message2'>
+         
+         <button className='btn'>
+            Messange
+            
+         </button>
+     </Link>
                 <Link to='/vacations'>
                     <button className="btn">
                     Vacations

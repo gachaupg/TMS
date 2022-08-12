@@ -16,10 +16,13 @@ const TenantMainPage = () => {
     <div className="tenant-page">
         <div className="tenant-header">
         
-<Message/>
 
  <Link className='apartment' to='/rent'>  <button className="btn">Dashboard</button></Link> 
-
+ <Link to='/message'>
+                    <button className='btn'>
+                   Notifications
+                    </button>
+                </Link>
                 
         </div>
        
