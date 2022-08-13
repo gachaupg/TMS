@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+import { format } from 'timeago.js'
 const AdminTotalRent = () => {
       const [tours,setTours]=useState([])
 // const {tours}=useSelector((state)=>state.project)
@@ -49,6 +50,8 @@ useEffect(()=>{
          {tours && tours?.map((item)=>{
           return(
             <div className='datas'>
+              <h4>{format(item.createdAt)}</h4> 
+
               <p>Name: {item.name}</p>
              <p> Aparment: {item.apartment}</p> 
              <p> HouseNo: {item.houseNo}</p> 

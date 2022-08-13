@@ -7,6 +7,7 @@ import {toast} from 'react-toastify'
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { format } from 'timeago.js';
 const AdminDefault = () => {
     const dispatch=useDispatch()
       const [tours,setTours]=useState([])
@@ -40,6 +41,7 @@ useEffect(()=>{
           return(
             <div className='datas'>
                 <div></div>
+                <h4>{format(item.createdAt)}</h4> 
               <p>Name: {item.name}</p>
              <p> Aparment: {item.apartment}</p> 
              <p> Amount: {item.amount}</p> 

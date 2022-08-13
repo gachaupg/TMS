@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import Message from './Message';
 const TenantMainPage = () => {
     const [socket, setSocket] = useState(null);
-    
+
 
     const {user}=useSelector((state)=>({...state.auth}))
 
@@ -18,11 +18,12 @@ const TenantMainPage = () => {
         
 
  <Link className='apartment' to='/rent'>  <button className="btn">Dashboard</button></Link> 
- <Link to='/message'>
+ {user?.result?.houseNo==='G1' ? <Link to='/message'>
                     <button className='btn'>
                    Notifications
                     </button>
-                </Link>
+                </Link>:null }
+
                 
         </div>
        

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import {format} from 'timeago.js'
 import {
  
   MDBIcon,
@@ -76,7 +77,7 @@ useEffect(()=>{
           return(
             
             <div className='datas'>
-              
+             <h4>{format(items.createdAt)}</h4> 
               <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
 
 {/* <p>Name: {items.name}</p>
@@ -105,7 +106,7 @@ useEffect(()=>{
 }</p> </p> 
 <p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
 <div className="buttons">
-{items.balance==='' ? <><button className="color1">No Balance</button></>
+{!items.balance? <><button className="color1">No Balance</button></>
 :<><button className="color2">Balance</button></>}
 </div>
 <div className="buttons">

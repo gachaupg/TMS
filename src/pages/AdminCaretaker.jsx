@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteMilestone } from '../redux/features/mileSlice';
+import { format } from 'timeago.js';
 const AdminCaretaker = () => {
     const dispatch=useDispatch()
       const [tours,setTours]=useState([])
@@ -64,6 +65,8 @@ useEffect(()=>{
           return(
             <div className='datas'>
                 <div></div>
+                <h4>{format(item.createdAt)}</h4> 
+
               <p>Item Name: {item.name}</p>
              <p> Apartment: {item.apartment} {}</p> 
              <p>Item: {item.item}</p>

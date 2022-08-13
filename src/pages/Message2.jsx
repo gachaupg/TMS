@@ -4,6 +4,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import audio from '../audio/audio1.wav'
 import axios from 'axios';
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 const socket= io.connect('http://localhost:3001')
 const getLocalStorage = () => {
   let message = localStorage.getItem('message');
@@ -18,6 +19,7 @@ const Message = () => {
 
 
   const [tours,setTours]=useState([])
+  const { user } = useSelector((state) => ({ ...state.auth }));
   const [message,setMessange]=useState(getLocalStorage(null))
   const [messages,setMessanges]=useState(getLocalStorage(null))
   useEffect(() => {
@@ -51,7 +53,7 @@ const Message = () => {
       try {
         const res= await axios.get('http://localhost:5000/stats/chartss')
         setTours(  res.data)
-        console.log('hey',tours);
+        console.log('hey',tours[1].houseNo);
        } catch (error) {
         console.log(error);
   
@@ -72,8 +74,7 @@ useEffect(()=>{
     
   return (
     <div style={{marginTop:'7rem'}}>
-<audio src={audio} controls />
-     <h5>Notification sent at:</h5> {moment().format("MMM Do YY")}
+
      {/* <input
         placeholder="Room Number..."
         onChange={(event) => {
@@ -81,6 +82,7 @@ useEffect(()=>{
         }}
       /> */}
       {/* <button onClick={joinRoom}> Join Room</button> */}
+      
     <textarea type="text" onChange={(e)=>setMessange(e.target.value)} />
     
     <button onClick={sendMessage}>Submit</button>
