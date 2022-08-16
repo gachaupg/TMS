@@ -41,9 +41,9 @@ console.log(userId);
 
 
   return (
-    <div className="tenant-cards">
-      <div className="details-card">
-        <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
+    <div style={{marginTop:'8rem'}}>
+    <div className="tenant-admin-page">
+      
     
         {projects && projects?.map((items)=>{
           return(
@@ -76,31 +76,30 @@ console.log(userId);
 <p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
 <p className='rentss'> <p>Total Balances:</p> <p>{items.balance
 }</p> </p> 
-<p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
-<div className="buttons">
-{items.balance==='' ? <><button className="color1">No Balance</button></>
-:<><button className="color2">Balance</button></>}
-</div>
+
 <div className="buttons">
 
-    <button className="btn">
+    {/* <button className="btn">
     <Link to ={`/users/${items._id}`}>
       read more
      </Link>
-    </button>
+    </button> */}
 
              </div>
+             
+             <a  href={`https://wa.me/${items.phone}`} target="_blank" rel="noreferrer noopener">Send a recomendation</a>
+
             </div>
           )
          })}
 
-   </div>
+   
       {/* <Link to ='/'>
       home
      </Link> */}
    </div>
   
-    
+    </div>
    
   )
 }

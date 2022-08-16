@@ -18,11 +18,11 @@ const TenantMainPage = () => {
         
 
  <Link className='apartment' to='/rent'>  <button className="btn">Dashboard</button></Link> 
- {user?.result?.houseNo==='G1' ? <Link to='/message'>
+ {/* {user?.result?.houseNo==='G1' ? <Link to='/message'>
                     <button className='btn'>
                    Notifications
                     </button>
-                </Link>:null }
+                </Link>:null } */}
 
                 
         </div>

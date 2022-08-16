@@ -9,14 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 // import { productsCreate } from '../redux/features/tourSlice';
 import { createProject, updateTour } from '../redux/features/projectSlice';
 import FileBase from "react-file-base64";
+import axios from 'axios';
 
 const StudentProjectCreate = () => {
   const {projects}=useSelector((state)=>({...state.project}))
   const notify = () => toast("Wow so easy!");
   const dispatch=useDispatch()
   const navigate=useNavigate()
+  const [tours,setTours]=useState([])
+
   const { user } = useSelector((state) => ({ ...state.auth }));
-// console.log(user);
+
 
   const {error ,loading}= useSelector((state)=>({...state.project}))
   const [users,setUser]=useState({
@@ -72,6 +75,28 @@ useEffect(() => {
   }
 }, [error])
 
+
+useEffect(()=>{
+  async function fetchData(){
+  try {
+    const res= await axios.get('http://localhost:5000/stats/users')
+    setTours(  res.data)
+    console.log('hey',tours[0].phone);
+   } catch (error) {
+    console.log(error);
+
+
+    
+  }
+  }
+  fetchData()
+    },[])
+
+const [number,setNumber]=useState('')
+const handleNumber= (e)=>{
+  setNumber(number)
+  console.log(number);
+}
 return (
  <>
   {/* <ToastContainer /> */}
@@ -128,7 +153,13 @@ return (
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
       ADD
     </button>
-      
+
+
+    {/* recommedations 
+    <input type="Number" onChange={(e)=>setNumber(e.target.value)}  />
+    <button onClick={handleNumber}>send</button>
+    <a  href={`https://wa.me/${number}`} target="_blank" rel="noreferrer noopener">Send</a>
+       */}
 </StyledForm>
    
 

@@ -66,10 +66,14 @@ useEffect(()=>{
       };
 
   return (
-    <div>
-      <h4>Rents Tenant Progress</h4>
-<input type="text" placeholder='Search by house Number' onChange={handleSearch} />
-                <div styls={{marginLeft:'5px'}}>
+    <>
+       <h4 className='r'>Rents Tenant Progress</h4>
+       <div className='search'>      
+      <input type="text" placeholder='Search by house number' onChange={handleSearch} />
+</div>  
+    
+    <div className='tenant-admin-page'>
+                 <div styls={{marginLeft:'5px'}}>
                   <MDBIcon fas icon='serach'/>
                 </div>
              
@@ -86,7 +90,7 @@ useEffect(()=>{
 <p> HouseNo: {items.houseNo}</p>
 <p>IdNo: {items.idNo}</p>
 <p>WaterFee: {items.waterFee}</p>  */}
-<p className='rentss'> <p> Name:   </p> <p>{items.name}</p> </p>
+{!items.balance? <p  className='color1'>Name : {items.name}</p>:<p className='color2'>Name : {items.name}</p>}
 <p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
 <p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
 <p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
@@ -102,23 +106,25 @@ useEffect(()=>{
 <p className='rentss'> <p>Arrears:</p> <p>{items.arrears}</p> </p> 
 <p className='rentss'> <p>Phone Number:</p> <p>{items.phone}</p> </p> 
 <p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
-<p className='rentss'> <p>Total Balances:</p> <p>{items.balance
-}</p> </p> 
-<p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
-<div className="buttons">
+<p className='rentss'> <p>Total Balances:</p> <p>{items.balance}</p> </p> 
+{/* <p className='rentss'> <p>Total Balances:</p> <p>{items.balance+items.penalties+items.arrears}</p> </p>  */}
+
+<p>Payment Screenshot:</p> 
+<p className='rentss'> <img className='image' src={items.imageFile} alt="" /> </p> 
+{/* <div className="buttons">
 {!items.balance? <><button className="color1">No Balance</button></>
 :<><button className="color2">Balance</button></>}
-</div>
+</div> */}
 <div className="buttons">
 <button className="btn "onClick={() => handleDelete(items._id)}
 >
           delete
             </button>
-    <button className="btn">
+    {/* <button className="btn">
     <Link to ={`/users/${items._id}`}>
       read more
      </Link>
-    </button>
+    </button> */}
 
              </div>
             </div>
@@ -126,7 +132,7 @@ useEffect(()=>{
          })}
 
     </div>
-  )
+</>  )
 }
 
 export default AdminTenants

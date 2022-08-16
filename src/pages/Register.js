@@ -21,12 +21,13 @@ const initialState = {
   password: "",
   confirmPassword: "",
   houseNo:"",
+  phone:"",
 };
 
 const Register = () => {
   const [formValue, setFormValue] = useState(initialState);
   const { loading, error } = useSelector((state) => ({ ...state.auth }));
-  const { email, password, firstName, lastName, confirmPassword,houseNo } = formValue;
+  const { email, password,phone, firstName, lastName, confirmPassword,houseNo } = formValue;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,7 +40,7 @@ const Register = () => {
     if (password !== confirmPassword) {
       return toast.error("Password should match");
     }
-    if (email && password && firstName && lastName && confirmPassword,houseNo) {
+    if (email && password && firstName && lastName && email &&confirmPassword,houseNo) {
       dispatch(register({ formValue, navigate, toast }));
     }
   };
@@ -128,6 +129,18 @@ const Register = () => {
                 required
                 invalid
                 validation="Please provide confirm password"
+              />
+            </div>
+            <div className="col-md-12">
+              <MDBInput
+                label="phone Number"
+                type="Number"
+                value={phone}
+                name="phone"
+                onChange={onInputChange}
+                required
+                invalid
+                validation="Phon number eg +257757198515"
               />
             </div>
             <div className="col-12">

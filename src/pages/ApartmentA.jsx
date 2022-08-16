@@ -20,7 +20,7 @@ const ApartmentA = () => {
           },[])
 
   return (<>
-    <h4 className='headers'>Apartment A all Rents Progress</h4>
+    <h4 className='headers'> Rents Progress Every Month</h4>
 
     <div  className='rent-page'>
     {admin.map((items)=>{
@@ -45,12 +45,11 @@ const ApartmentA = () => {
               <p className='rentss'> <p>Method of payment:</p> <p>{items.payment}</p> </p> 
               <p className='rentss'> <p>Date of Payment:</p> <p>{items.datePaid}</p> </p> 
               <p className='rentss'> <p>Type of the rental:</p> <p>{items.aptType}</p> </p> 
-              <p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
+              <p className='rentss'> <p>Arrears:</p> <p>{items.arrears}</p> </p> 
+              <p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
+              <p className='rentss'> <p>Total Balance:</p> <img className='img' src={items.balance} alt="" /> </p> 
 
-
-              Balance:
-              <p>{items.aptType==='1bedroom' ? items.plotA-items.amount: null}</p>
-              <p>{items.aptType==='2bedroom' ? items.plotA-items.amount: null}</p>
+   
               
               </div>
       )

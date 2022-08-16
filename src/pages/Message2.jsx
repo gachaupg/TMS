@@ -71,6 +71,7 @@ useEffect(()=>{
     )
   }
 })
+const number=+254757198515
     
   return (
     <div style={{marginTop:'7rem'}}>
@@ -82,7 +83,7 @@ useEffect(()=>{
         }}
       /> */}
       {/* <button onClick={joinRoom}> Join Room</button> */}
-      
+      <a  href={`https://wa.me/${number}`} target="_blank" rel="noreferrer noopener">Send</a>
     <textarea type="text" onChange={(e)=>setMessange(e.target.value)} />
     
     <button onClick={sendMessage}>Submit</button>

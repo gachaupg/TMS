@@ -42,9 +42,12 @@ useEffect(()=>{
       }
 
   return (
-    <div>
-      <h4>Complains</h4>
-      <input type="text" placeholder='Search by house Number' onChange={handleSearch} />
+    <>
+      <h4 className='r' styles={{color:'white'}}>Complains</h4>
+      <div className='search'>      
+      <input type="text" placeholder='Search by house number' onChange={handleSearch} />
+</div>    <div className='tenant-admin-page'>
+    
 
          {tours && tours?.map((item)=>{
           return(
@@ -66,7 +69,7 @@ useEffect(()=>{
          })}
 
     </div>
-  )
+  </>)
 }
 
 export default AdminTotalRent

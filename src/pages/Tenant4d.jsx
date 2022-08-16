@@ -38,19 +38,19 @@ const Tenant4D = () => {
               <p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
               <p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
               <p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
+              <p className='rentss'> <p>Water Bill:</p> <p>{items.waterFee}</p> </p>  
+              <p className='rentss'> <p>Wi fii:</p> <p>{items.wifi}</p> </p>  
+            
               <p className='rentss'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
-              <p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
+              {/* <p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
               <p className='rentss'> <p>Last Water Read:</p> <p>{items.lastRead}</p> </p> 
-              <p className='rentss'> <p>Method of payment:</p> <p>{items.payment}</p> </p> 
               <p className='rentss'> <p>Date of Payment:</p> <p>{items.datePaid}</p> </p> 
               <p className='rentss'> <p>Type of the rental:</p> <p>{items.aptType}</p> </p> 
-              <p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
-
-
-              Balance:
-              <p>{items.aptType==='1bedroom' ? items.plotA-items.amount: null}</p>
-              <p>{items.aptType==='2bedroom' ? items.plotA-items.amount: null}</p>
-              
+              {/* <p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p>  */}
+              <p className='rentss'> <p>Arrears:</p> <p>{items.arrears}</p> </p> 
+              <p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
+              {/* <p className='rentss'> <p>Total Balance:</p> <img className='img' src={items.balance} alt="" /> </p>  */}
+              <p className='rentss'> <p>Total Balnces:</p> <p>{items.balance}</p> </p> 
               </div>
       )
     })}

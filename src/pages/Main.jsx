@@ -122,7 +122,7 @@ if(user?.result?.caretaker ){
 }else{
     return (
     <div >
-    <h5 className="header" > Hello {user?.result?.name} this your page</h5>
+    <h5 className="header" > Hello {user?.result?.name} </h5>
     <div className="line"></div>
     <div  className="main">
       
@@ -133,15 +133,16 @@ if(user?.result?.caretaker ){
          
     </div>
     <div className="left">
+      <h4>Instructions</h4>
         {/* <Link to='/addProject'>
            <button className="btn">Add a Project</button> 
         </Link> */}
         
         {/* <button className="btns">Not allocated yet ...</button> */}
         <p>
-        Do you need help?<br></br> Email the system coordinator on admin@gmail.com<br></br>
+        <li>Rent Should be paid before Date 5.</li> <br></br> <li>Failure to pay Rent Within The set A penalty is raised</li><br></br>
 
-Are you a CareTaker but logged in with <br></br> a Tenants level account? <br></br> Send a supervision request to admin@sppms.com. <br></br> In the request, attach your national ID and your staff ID.<br></br> Note that the system admin may schedule a <br></br>zoom meeting with you to <br></br> confirm your identity.
+ <br></br> <li>Complains And vacations should be done Through Vacation and Complain Page</li> <br></br><li>Vacation Notice should be done one month prior to vacation date</li> <br></br>
         </p>
     </div>
    {/* {user?.result?.isAdmin?'hello' :'not admin'} */}
@@ -166,6 +167,7 @@ const StyledDashboard = styled.div`
   display: flex;
   height: 100vh;
   flex-wrap:wrap;
+  background-image:url('https://www.vecteezy.com/vector-art/4821057-metropolitan-city-building-vector-skyscrapers-consist-of-offices-apartments-highways-business-areas-best-for-your-wallpaper-and-background')
 `;
 
 const SideNav = styled.div`

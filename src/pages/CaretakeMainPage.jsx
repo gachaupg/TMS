@@ -44,7 +44,7 @@ const CaretakeMainPage = () => {
            
             <Link to='/rents'>
                     <button className="btn">
-                    Rent
+                    Rent and Messages
                     </button>
                 </Link>
                 <Link to='/addproject'>
@@ -57,13 +57,13 @@ const CaretakeMainPage = () => {
         
             <div className="tenant-header">
 
-            <Link to='/message2'>
-         
-         <button className='btn'>
+            {/* <Link to='/message2'>
+{/*           */}
+         {/* <button className='btn'>
             Messange
             
          </button>
-     </Link>
+     </Link>  */}
                 <Link to='/vacations'>
                     <button className="btn">
                     Vacations

@@ -57,9 +57,15 @@ useEffect(()=>{
 
 
   return (
-    <div>
+    <>
+    <h4 className='r'>Maintanance</h4>
+    <div className='search'>      
       <input type="text" placeholder='Search by Apartment' onChange={handleSearch} />
-                
+</div>
+        
+    
+    <div className='tenant-admin-page'>
+              
       
          {tours && tours?.map((item)=>{
           return(
@@ -96,7 +102,7 @@ useEffect(()=>{
          })}
 
     </div>
-  )
+  </>)
 }
 
 export default AdminCaretaker
