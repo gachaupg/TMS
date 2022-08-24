@@ -24,15 +24,16 @@ const userId =user?.result?._id
 
 const [date,setDate]=useState('')
 const [mile,setMilestone]=useState({
-    name:'',
-    apartment:'',
+  maintance:'',
+  general:'',
     item:'',
     quantity:'',
     price:'',
-    shopName:'',
+    Name:'',
     servedBy:'',
     phoneNo:'',
-
+    apartment:'',
+cost:'',
     createdAt:Date
 
 })
@@ -51,20 +52,45 @@ const handleSubmit= (e)=>{
   return (
    
       <StyledForm style={{marginTop:'8rem'}} onSubmit={handleSubmit}>
-    <h3> Caretaker Roles </h3>
+    <h3 style={{color:'whitesmoke'}}> maintenance </h3>
     <div className="main-rent-create">
     <div className="rent-split-start">
-      <input className='form-input' type='text'  placeholder='Your Name' onChange={(e)=> setMilestone({...mile , name:e.target.value})} required/>
-      <input className='form-input' type='text'  placeholder='Apartment eg A or B or C' onChange={(e)=> setMilestone({...mile , apartment:e.target.value})} required/>
-      <input className='form-input' type='text'  placeholder='Name of the Item' onChange={(e)=> setMilestone({...mile , item:e.target.value})} required/>
-       <input className='form-input' type='number'  placeholder='Price' onChange={(e)=> setMilestone({...mile , price:e.target.value})} required/>
+
+
+
+    <select name="" id="" onChange={(e)=> setMilestone({...mile, general:e.target.value})}>
+        <option value="Locality of Repair/ maintenance">Locality of Repair/ maintenance</option>
+        <option value="General">General</option>
+        <option value="specific house">specific house</option>
+       
+      </select>
+
+<div >....</div>
+         {/* <input className='form-input' type='number'  placeholder='Labour Charges' onChange={(e)=> setMilestone({...mile , price:e.target.value})} /> */}
+
+      
+      
+      
+<input className='form-input' type='text'  placeholder='Description of issue/fault' onChange={(e)=> setMilestone({...mile , maintance:e.target.value})} />
+
+      <input className='form-input' type='number'  placeholder=' Repair Estimates/Quotations' onChange={(e)=> setMilestone({...mile , cost:e.target.value})} />
+      {/* <input className='form-input' type='text'  placeholder='Name of the Item' onChange={(e)=> setMilestone({...mile , item:e.target.value})} /> */}
+       
+      <select name="" id="" onChange={(e)=> setMilestone({...mile, quantity:e.target.value})} >
+  <option value="work completed"> work copmleted</option>
+  <option value="yes">yes</option>
+  <option value="no">no</option>
+</select>
+<div >....</div>
        </div>
+       
        <div className="rent-split">
-       <input className='form-input' type='number'  placeholder='Quantity' onChange={(e)=> setMilestone({...mile , quantity:e.target.value})} required/>
-      <input className='form-input' type='text'  placeholder='Shop Name' onChange={(e)=> setMilestone({...mile , shopName:e.target.value})} required/>
-      <input className='form-input' type='number'  placeholder='Phone Number of the Seller' onChange={(e)=> setMilestone({...mile , phoneNo:e.target.value})} required/>
-      <input className='form-input' type='text'  placeholder='Name of The Seller' onChange={(e)=> setMilestone({...mile , servedBy:e.target.value})} required/> 
-       <input className='form-input' type='Date'  placeholder='Project Title' onChange={(e)=> setMilestone({...mile , createdAt:e.target.value})} required/>
+       <input className='form-input' type='number'  placeholder='Labour Charges' onChange={(e)=> setMilestone({...mile , price:e.target.value})} />
+
+       <input className='form-input' type='text'  placeholder='House number' onChange={(e)=> setMilestone({...mile , apartment:e.target.value})} /> 
+      <input className='form-input' type='text'  placeholder='Remarks' onChange={(e)=> setMilestone({...mile , servedBy:e.target.value})} /> 
+
+      <input className='form-input' type='number'  placeholder='Phone Number of the Engineer' onChange={(e)=> setMilestone({...mile , phoneNo:e.target.value})} />
       
       </div>
 </div>

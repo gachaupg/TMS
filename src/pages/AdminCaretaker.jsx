@@ -14,10 +14,19 @@ const AdminCaretaker = () => {
       const [tours,setTours]=useState([])
 // const {tours}=useSelector((state)=>state.project)
 // console.log(tours);
+function compare(a,b){
+  if(a._id <b._id){
+    return 1
+  }
+  if(a._id >b._id){
+    return -1
+  }return 0
+}
 useEffect(()=>{
     async function fetchData(){
     try {
       const res= await axios.get('http://localhost:5000/stats/caretaker')
+      res.data.sort(compare)
       setTours(  res.data)
       console.log('hey',tours);
      } catch (error) {
@@ -73,28 +82,29 @@ useEffect(()=>{
                 <div></div>
                 <h4>{format(item.createdAt)}</h4> 
 
-              <p>Item Name: {item.name}</p>
-             <p> Apartment: {item.apartment} {}</p> 
-             <p>Item: {item.item}</p>
-             <p>Quantity: {item.quantity}</p>
-             <p>Price: {item.price}</p>
-             <p>ShopsPhone: {item.phoneNo}</p>
+              <p>Locality of Repair/maintanance: {item.general}</p>
+             <p> Description of issue: {item.maintance} {}</p> 
+             <p>Repair estimates /Quotations: {item.cost}</p>
+             <p>Labour charges: {item.price}</p>
+             <p>Work Completion: {item.quantity}</p>
+             <p>Remarks: {item.apartment}</p>
+             <p>Phone no of Repair Person: {item.phoneNo}</p>
              {/* <p> Amount: {item.amount}</p> 
              <p> HouseNo:{item.houseNo}</p> 
              <p> House: {item.aptType}</p>  */}
 
-             <p> Id:{item.idNo}</p> 
+            
 
              <div className="buttons">
              <button className="btn"onClick={() => handleDelete(item._id)}
 >
           delete
             </button>
-    <button className="btn">
+    {/* <button className="btn">
     <Link to ={`/project/${item._id}`}>
       read more
      </Link>
-    </button>
+    </button> */}
 
              </div>
             </div>

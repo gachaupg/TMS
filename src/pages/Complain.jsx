@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import {StyledForm} from './StyledForm'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import { StyledForm } from './StyledForm'
 import { useDispatch, useSelector } from "react-redux";
 // import { productsCreate } from '../redux/features/tourSlice';
@@ -52,17 +52,81 @@ useEffect(() => {
 
 
 return (
+  <>
+
+<div className='rent' style={{marginTop:'6rem'}}>
+    
+
+  {user?.result?.houseNo==='G1' ?<Link className='apartment' to='/compaling1'>  <h5 className='text'></h5>compliments and complains</Link> :null }
+   
+   <div className="rent">
+    
+      {user?.result?.houseNo==='G2' ?<Link className='apartment'  to='/compaling2'> compliments and complains</Link> : null }
+      </div>
+      <div className="rent">
+    
+      {user?.result?.houseNo==='1A' ?<Link className='apartment'  to='/compalin1a'> compliments and complains</Link> : null }
+      </div><div className="rent">
+    
+    {user?.result?.houseNo==='1B' ?<Link className='apartment'  to='/compalin1b'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='1C' ?<Link className='apartment'  to='/compalin1c'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='1D' ?<Link className='apartment'  to='/compalin1d'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='2A' ?<Link className='apartment'  to='/compalin2a'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='2B' ?<Link className='apartment'  to='/compalin2b'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='2C' ?<Link className='apartment'  to='/compalin2c'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='2D' ?<Link className='apartment'  to='/compalin2d'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='3A' ?<Link className='apartment'  to='/compalin3a'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='3B' ?<Link className='apartment'  to='/compalin3b'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='3C' ?<Link className='apartment'  to='/compalin3c'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='3D' ?<Link className='apartment'  to='/compalin3d'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='4A' ?<Link className='apartment'  to='/compalin4a'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='4B' ?<Link className='apartment'  to='/compalin4b'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='4C' ?<Link className='apartment'  to='/compalin4c'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='4D' ?<Link className='apartment'  to='/compalin4d'> compliments and complains</Link> : null }
+    </div><div className="rent">
+    
+    {user?.result?.houseNo==='5A' ?<Link className='apartment'  to='/compalin5a'> compliments and complains</Link> : null }
+    </div>
+</div>
  
-  <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'10rem'}} className='form'>
-  <h2>Add A Complain</h2>
-  <div className="main-rent-create">
+  <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'5rem'}} className='form'>
+  <h2 style={{color:'whitesmoke'}}>Add A Complain</h2>
+    <div className="main-rent-create">
   <div className="rent-split-start">
-    <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/>
+    {/* <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/> */}
     <input className='form-input' type='text'  placeholder='Name' onChange={(e)=> setUser({...users , name:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
     </div>
     <div className="rent-split">
-    <input className='form-input' type='number' placeholder='Id Number' onChange={(e)=> setUser({...users ,idNo:e.target.value})} required/>
+    {/* <input className='form-input' type='number' placeholder='Id Number' onChange={(e)=> setUser({...users ,idNo:e.target.value})} required/> */}
     <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
       <input className='form-input' type='text' placeholder='Complain' onChange={(e)=> setUser({...users ,complain:e.target.value})}/>
       {/* <div className="d-flex justify-content-start">
@@ -82,8 +146,11 @@ return (
     </button>
       
 </StyledForm>
-   
 
+
+      
+   
+</>
    
   
     

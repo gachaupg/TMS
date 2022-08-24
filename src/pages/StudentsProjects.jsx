@@ -19,11 +19,25 @@ import Edit from "./Edit";
 
 // import {AiOutlineArrowRight} from 'react-icons/ai'
 import moment from 'moment'
+
+
+
+
+function compare(a,b){
+  if(a._id <b._id){
+    return 1
+  }
+  if(a._id >b._id){
+    return -1
+  }return 0
+}
 const StudentsProjects = () => {
   const [tenants,setTenants]= useState({})
   const [clear,setClear]= useState([])
     const navigate=useNavigate()
-  const dispatch=useDispatch()
+    const [search,setSearch]=useState("")
+    const dispatch=useDispatch()
+      const [tours,setTours]=useState([])
   const {id}=useParams()
   // const { Tours} = useSelector((state) => ({ ...state.tour }));
   const {user}=useSelector((state)=>({...state.auth}))
@@ -38,13 +52,74 @@ console.log(userId);
 
 // }, [userId])
 
+// useEffect(()=>{
+//   projects.sort(compare)
+// setTenants(projects)
+// },[])
+const handleDelete = (id) => {
+  if (window.confirm("Are you sure you want to delete this tour ?")) {
+    dispatch(deleteTour({ id, toast }));
+  }
+};
+
+const handleSearch= async (event)=>{
+  event.preventDefault()
+  let key =event.target.value
+  if(key){
+   let result= await fetch(`http://localhost:5000/project/search${key}`)
+result=await result.json()
+result.sort(compare)
+if(result){
+  setTours(result)
+  
+} console.log('result',result);
+  }else{
+    setTours()
+  }
 
 
+}
   return (
     <div style={{marginTop:'8rem'}}>
+
+
+<div className="tenant-header">
+            
+            <Link to='/responses'>
+                <button className='btn'>
+                Responses
+                </button>
+            </Link>
+            <Link to='/expenses'>
+                <button className='btn'>
+                   Operational costs
+                </button>
+            </Link>
+
+        
+    </div>
+      <h4 style={{color:'whitesmoke'}}>Rent progress</h4>
+
+      <div className='search'>      
+      <input type="text" placeholder='Search by house number' onChange={handleSearch} />
+</div> 
     <div className="tenant-admin-page">
       
-    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {projects && projects?.map((items)=>{
           return(
             
@@ -61,8 +136,8 @@ console.log(userId);
 <p className='rentss'> <p> Name:   </p> <p>{items.name}</p> </p>
 <p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
 <p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
-<p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
-<p className='rentss'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
+<p className='rentss'> <p>Deposit:</p> <p>{items.payment}</p> </p>
+<p className='rentss'> <p>Contract Renewal:</p>  <p>{items.aptType}</p></p>
 <p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
 <p className='rentss'> <p>Last Water Read:</p> <p>{items.lastRead}</p> </p> 
 <p className='rentss'> <p>Water bill:</p> <p>{items.waterFee}</p> </p> 
@@ -78,7 +153,10 @@ console.log(userId);
 }</p> </p> 
 
 <div className="buttons">
-
+<button className="btn "onClick={() => handleDelete(items._id)}
+>
+          delete
+            </button> 
     {/* <button className="btn">
     <Link to ={`/users/${items._id}`}>
       read more

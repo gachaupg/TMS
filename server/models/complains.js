@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const tourSchema = mongoose.Schema({
-  apartment: {type:String,required:true},
+  apartment: {type:String},
   name:{type:String,required:true},
   houseNo:{type:String,required:true},
   // amount: {type:Number,required:true},

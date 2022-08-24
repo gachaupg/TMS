@@ -4,6 +4,14 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { format } from 'timeago.js'
 const AdminTotalRent = () => {
+  function compare(a,b){
+    if(a._id <b._id){
+      return 1
+    }
+    if(a._id >b._id){
+      return -1
+    }return 0
+  }
       const [tours,setTours]=useState([])
 // const {tours}=useSelector((state)=>state.project)
 // console.log(tours);
@@ -11,6 +19,7 @@ useEffect(()=>{
     async function fetchData(){
     try {
       const res= await axios.get('http://localhost:5000/stats/vacations')
+      res.data.sort(compare)
       setTours(  res.data)
       console.log('hey',tours);
      } catch (error) {
@@ -63,8 +72,8 @@ useEffect(()=>{
              <p> Reason: {item.reason}</p> 
              <p> Vaction Date: {item.remTime}</p> 
              <div className="buttons">
-              <button className="btn">delete</button>
-              <button className="btn">view</button>
+              {/* <button className="btn">delete</button>
+              <button className="btn">view</button> */}
 
              </div>
             </div>

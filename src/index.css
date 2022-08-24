@@ -4,7 +4,7 @@
 body {
   background-color: #0f0e0e;
   /* opacity: 0.8; */
-  background-image: url('https://images.pexels.com/photos/12848330/pexels-photo-12848330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  /* background-image: url('https://images.pexels.com/photos/12848330/pexels-photo-12848330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
   margin: 0;
   background-repeat: repeat;
   border-image:none;
@@ -54,18 +54,25 @@ margin-top: 4rem;
 .header-text {
   color: #fcfaf9;
   font-weight: 500;
-  margin-top: 17px;
-  font-size: 17px;
+  display: flex;
+  /* margin-top: 17px; */
+ align-items: center;
+ justify-content: center;
+ text-align: center;
   background-image: url('./Assets/wood1.jpg') !important;
-  height: 50px;
-  width: 100px;
+  /* 
   align-items: center;
-  text-align: center;
-  padding-top: 10px;
-  border-radius: 4px;
-  margin-left: 40px;
+  text-align: center; */
+  height: 45px;
+  width: 100px;
+  margin-top: 2rem;
   
   
+}
+
+.headd{ 
+  margin-bottom: 2rem !important;
+  text-align: center !important; 
 }
 
 .top-left {
@@ -125,7 +132,7 @@ h4:after {
 
 .main{
   width: 100%;
-  height: 100Vh;
+  
   display: flex;
   flex-direction: row;
   /* margin-top: 1rem ; */
@@ -189,14 +196,23 @@ h4:after {
   justify-content: center;
   /* font-size: 1.3rem; */
 }
+.btnss{
+  height: 2.5rem;
+  width: 11.8rem;
+  background-image: url('./Assets/wood1.jpg') !important;
+  /* background-color: #da89bc !important; */
+  color: rgb(255, 254, 254) !important;
+ align-items: center;
+ text-align: center;
+}
 .btn{
   height: 2.5rem;
-  width: 10rem;
+  width: 11.8rem;
   background-image: url('./Assets/wood1.jpg') !important;
   /* background-color: #da89bc !important; */
   border-radius: 1rem;
   color: rgb(255, 254, 254) !important;
-  margin-bottom: 0.5rem;
+ 
 }
 .btns{
   height: 2rem;
@@ -256,13 +272,12 @@ justify-content: space-between;
   font-size: 2rem;
   margin-left: 1rem;
   font-weight: 900;
-  color: #f93154;
+  color: #09df50;
   animation-duration: 10s;
   animation-iteration-count: 2; 
   animation: move 10s alternate;
   animation-fill-mode: forwards;
-  color: rgb(240, 32, 212);
-  font-size: 3rem;
+  color: #09df50;  font-size: 3rem;
 }
 @keyframes move {
   0%{
@@ -387,7 +402,7 @@ justify-content: space-between;
   text-align: center;
   font-size: 26px;
   text-shadow: 1px 1px cyan;
-  color: #eee8e8;
+  color: #faf9f9 !important;
 }
 .rent-page{
   display: flex;
@@ -395,7 +410,7 @@ justify-content: space-between;
   flex-wrap: wrap;
   gap: 3rem;
   align-items: center;
-  margin-top: 140px;
+ 
   padding: 40px;
 }
 .rent-pages{
@@ -407,13 +422,29 @@ justify-content: space-between;
   padding: 40px; 
   /* align-items: center; */
 }
-.img{
-  width: 26%;
+.weired-links{
+  width: 30%;
+  background-color: #3d383b;
+  align-items: center;
+  background-image: url('./Assets/wood1.jpg') !important;
 
+}
+.rent-main{
+  background-color: #3d383b;
+  background-image: url('./Assets/wood1.jpg') !important;
+  
+}
+.img{
+  width: 100%;
+
+}
+.spaces{
+  margin-right: 2rem !important;
 }
 .rentss{
   display: flex;
-gap: 3rem;
+  flex-direction: row;
+  gap: 5rem;
 }
 .rent-card{
   display: flex;
@@ -431,6 +462,7 @@ gap: 3rem;
 }
 .headers{
   margin-top: 7rem;
+  color: #faf8f8 !important;
 }
 
 .rent-cards{
@@ -543,7 +575,7 @@ gap: 3rem;
   width: 100%;
  
   object-fit: cover;
-  margin-top: 5rem;
+  margin-top: 0.449rem;
 }
 .main-rent-create{
   /* width: 100%; */
@@ -568,13 +600,11 @@ gap: 3rem;
   flex-direction: column;
 }
 .logo{
-  height: 4rem;
-  width: 3rem;
+  height: 5rem;
+  width: 5rem;
   object-fit: cover;
-  word-wrap: normal;
-  border-image-outset: 0;
-  -o-border-image: none;
-  border-radius: 90%;
+  border-radius: 40%;
+ 
 }
 .footer{
   width: 100%;
@@ -719,6 +749,7 @@ margin-left: 1px;
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 3rem;
  margin-top: 2rem;
   align-items: center;
@@ -763,6 +794,7 @@ margin-left: 1px;
   gap: 4rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
+ 
 
 }
 .image{
@@ -773,6 +805,7 @@ margin-left: 1px;
   align-items: center;
   margin-bottom: 1rem;
   text-align: center;
+  color: #0f0f0f !important;
   
 }
 .search input{
@@ -780,4 +813,21 @@ margin-left: 1px;
   text-align: center;
   width: 20rem;
   border-radius: 2rem;
+  background-color: #fcf8f8 !important;
+  color: #000 !important;
+}
+.notification{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 5rem;
+  align-items: center;
+}
+
+.vacate-card-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+background-color: #fdfcfd;
 }

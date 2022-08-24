@@ -17,6 +17,7 @@ import Profile from './Profile';
 import { deleteUser } from '../redux/features/authSlice';
 import moment from 'moment';
 import jsPDF from 'jspdf';
+import AdminSidebar from './AdminSidebar';
 const AdminTenants = () => {
   const [search,setSearch]=useState("")
     const dispatch=useDispatch()
@@ -67,30 +68,33 @@ useEffect(()=>{
 
   return (
     <>
-       <h4 className='r'>Rents Tenant Progress</h4>
+       {/* <h4 className='r'>Rents Tenant Progress</h4>
        <div className='search'>      
       <input type="text" placeholder='Search by house number' onChange={handleSearch} />
-</div>  
-    
-    <div className='tenant-admin-page'>
+</div>  */}
+     <div className='tenant-admin-page'>
+    {/*
                  <div styls={{marginLeft:'5px'}}>
                   <MDBIcon fas icon='serach'/>
-                </div>
+                </div> */}
              
-         {tours && tours?.map((items)=>{
+         {/* {tours && tours?.map((items)=>{
           return(
             
-            <div className='datas'>
-             <h4>{format(items.createdAt)}</h4> 
-              <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
+            <div className='datas'> */}
+             {/* <h4>{format(items.createdAt)}</h4>  */}
+              {/* <h3 className='month'>month of {moment().format('MM YYYY ')}</h3> */}
 
-{/* <p>Name: {items.name}</p>
+   {/* {tours && tours?.map((item)=>{            */}
+  <AdminSidebar/>
+
+{/* /* <p>Name: {items.name}</p>
 <p> RentPaid: {items.amount}</p>
 <p>ApartMent: {items.apartment}</p>
 <p> HouseNo: {items.houseNo}</p>
 <p>IdNo: {items.idNo}</p>
-<p>WaterFee: {items.waterFee}</p>  */}
-{!items.balance? <p  className='color1'>Name : {items.name}</p>:<p className='color2'>Name : {items.name}</p>}
+<p>WaterFee: {items.waterFee}</p>   */}
+{/* {!items.balance? <p  className='color1'>Name : {items.name}</p>:<p className='color2'>Name : {items.name}</p>}
 <p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
 <p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
 <p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
@@ -106,30 +110,30 @@ useEffect(()=>{
 <p className='rentss'> <p>Arrears:</p> <p>{items.arrears}</p> </p> 
 <p className='rentss'> <p>Phone Number:</p> <p>{items.phone}</p> </p> 
 <p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
-<p className='rentss'> <p>Total Balances:</p> <p>{items.balance}</p> </p> 
+<p className='rentss'> <p>Total Balances:</p> <p>{items.balance}</p> </p>  */}
 {/* <p className='rentss'> <p>Total Balances:</p> <p>{items.balance+items.penalties+items.arrears}</p> </p>  */}
 
-<p>Payment Screenshot:</p> 
-<p className='rentss'> <img className='image' src={items.imageFile} alt="" /> </p> 
+{/* <p>Payment Screenshot:</p> 
+<p className='rentss'> <img className='image' src={items.imageFile} alt="" /> </p>  */}
 {/* <div className="buttons">
 {!items.balance? <><button className="color1">No Balance</button></>
 :<><button className="color2">Balance</button></>}
 </div> */}
-<div className="buttons">
+{/* <div className="buttons">
 <button className="btn "onClick={() => handleDelete(items._id)}
 >
           delete
-            </button>
+            </button> */}
     {/* <button className="btn">
     <Link to ={`/users/${items._id}`}>
       read more
      </Link>
     </button> */}
 
-             </div>
-            </div>
+             {/* </div> */}
+            {/* </div>
           )
-         })}
+         })} */}
 
     </div>
 </>  )

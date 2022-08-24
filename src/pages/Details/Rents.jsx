@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Rents = () => {
+const Rents = ({item}) => {
   return (
-    <div>Rents</div>
+    <div>HouseNo:</div>
   )
 }
 

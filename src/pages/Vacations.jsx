@@ -1,19 +1,26 @@
+import axios from 'axios';
+import {format} from 'timeago.js'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import axios from 'axios'
 import { Link } from 'react-router-dom';
 
-const Vacations = () => {
-  const {user}=useSelector((state)=>({...state.auth}))
-    const userId =user?.result?._id
-    const [users,setUsers]=useState([]);
-    const [admin,setAdmin]=useState([]);
-    const [caretaker,setCareTaker]=useState([])
-    useEffect(()=>{
+function compare(a,b){
+    if(a._id <b._id){
+      return 1
+    }
+    if(a._id >b._id){
+      return -1
+    }return 0
+  }
+const Responses = () => {
+  const [admin,setAdmin]=useState([]);
+  
+  useEffect(()=>{
       async function fetchData(){
       try {
         const res= await axios.get('http://localhost:5000/vacation')
-        setUsers(  res.data)
+        res.data.sort(compare)
+        setAdmin(  res.data)
+        console.log(admin);
        } catch (error) {
         console.log(error);
         
@@ -21,29 +28,36 @@ const Vacations = () => {
       }
       fetchData()
         },[])
-        
   return (
+    <>
+     
+    <h4 className='headers'>Notices To Vacate</h4>
 
-    
-    <div className='rent-pages'>
-   <p className="header" id='vacatetitle'>Vacations</p>
-   
-  
+    <Link to='/caretakervacation'>
+        <button className="btn">
+        Notice to Vacate
+        </button>
+    </Link>
+    <div  className='rent-page'>
+    {admin.map((items)=>{
+      return(
         <div className='rent-card'>
-        {user?.result?.apartment==='a' ?
-          <Link className='apartment'   to='/vacationa'>
-          Apartment A</Link> : null}
-      </div>  
-      <div className='rent-cards'>
-      {user?.result?.apartment==='b' ?<Link className='apartment'  to='/vacationb'>
-          Apartment B</Link> : null}
-      </div> 
-      <div className='rent-cards'>
-      {user?.result?.apartment==='c' ?<Link className='apartment'  to='/vacationc'>
-          Apartment C</Link>: null}
-      </div>    
-</div>
+
+<p>updated at {format(items.createdAt)}</p>
+              <p>Name: {items.name}</p>
+              
+              <p> houseNo: {items.houseNo}</p>
+              <p>Reason if any: {items.reason}</p>
+              <p>Contract Reabewal: {items.contractRenewal}</p>
+              
+
+             
+              </div>
+      )
+    })}
+    </div>
+ </> 
   )
 }
 
-export default Vacations
+export default Responses

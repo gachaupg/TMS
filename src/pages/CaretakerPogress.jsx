@@ -33,7 +33,7 @@ const CaretakerPogress = () => {
    
   return (
     <>
-  <h2 className='caretaker-text'>Hello {user?.result?.name} this your page</h2>
+  <h2 style={{color:'whitesmoke'}} className='caretaker-text'>Hello {user?.result?.name} this your page</h2>
     <div className='caretaker-card'>
       
      {users && users.map((item)=>{

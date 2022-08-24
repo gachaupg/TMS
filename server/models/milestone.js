@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const mileSchema = mongoose.Schema({
-  name:{type:String},
-  
+  maintance:{type:String},
+  general:{type:String},
    apartment: {type:String},
-   item: {type:String,required:true},
-  quantity:{type:Number,required:true},
-  price:{type:Number,required:true},
-  shopName: {type:String,required:true},
+   item: {type:String},
+  quantity:{type:String},
+  price:{type:Number},
+  shopName: {type:String},
   servedBy: {type:String},
   phoneNo:{type:Number},
   createdAt: {

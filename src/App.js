@@ -45,7 +45,7 @@ import AdminCaretaker from "./pages/AdminCaretaker";
 import Admin from './pages/Admin'
 import Summary from "./pages/Summary";
 import AdminDefault from "./pages/AdminDefault";
-import TenantA from "./pages/TenantA";
+import ComplainG1 from "./pages/Complains/ComplainG1";
 import TenantG2 from "./pages/TenantG2";
 import Tenant1A from "./pages/Tenant1A";
 import Tenant1B from "./pages/Tenant1B";
@@ -64,10 +64,72 @@ import Tenant4B from "./pages/Tenant4b";
 import Tenant4C from "./pages/Tenant4c";
 import Tenant4D from "./pages/Tenant4d";
 import Tenant5A from "./pages/Tenant5a";
+import VacationG2 from "./pages/Vacations/VacationG2";
+import Vacation1B from "./pages/Vacations/Vacation1B";
+import VacationG1 from "./pages/Vacations/VacationG1";
+import Vacation1C from "./pages/Vacations/Vacation1C";
+import Vacation1D from "./pages/Vacations/Vacation1D";
+import Vacation2A from "./pages/Vacations/Vacation2A";
+import Vacation2B from "./pages/Vacations/Vacation2B";
+import Vacation2C from "./pages/Vacations/Vacation2C";
+import Vacation2D from "./pages/Vacations/Vacation2D";
+import Vacation3A from "./pages/Vacations/Vacation3A";
+import Vacation3B from "./pages/Vacations/Vacation3B";
+import Vacation3C from "./pages/Vacations/Vacation3C";
+import Vacation3D from "./pages/Vacations/Vacation3D";
+import Vacation4A from "./pages/Vacations/Vacation4A";
+import Vacation4B  from "./pages/Vacations/Vacation4B";
+import Vacation4C  from "./pages/Vacations/Vacation4C";
+import Vacation4D  from "./pages/Vacations/Vacation4d";
+import Vacation5B  from "./pages/Vacations/Vacation5B";
+import ComplainG2 from "./pages/Complains/ComplainG2"
+import Complain1A from "./pages/Complains/Complain1A";
+import Complain1B from "./pages/Complains/Complain1B";
+import Complain1C from "./pages/Complains/Complain1C";
+import Complain1D from "./pages/Complains/Complain1D";
+import Complain2A from "./pages/Complains/Complain2A";
+import Complain2B from "./pages/Complains/Complain2B";
+import Complain2C from "./pages/Complains/Complain2C";
+import Complain2D from "./pages/Complains/Complain2D";
+import Complain3A from "./pages/Complains/Complain3A";
+import Complain3B from "./pages/Complains/Complain3B";
+import Complain3C from "./pages/Complains/Complain3C";
+import Complain3D from "./pages/Complains/Complain3D";
+import Complain4A from "./pages/Complains/Complain4A";
+import Complain4B  from "./pages/Complains/Complain4B";
+import Complain4C  from "./pages/Complains/Complain4C";
+import Complain4D  from "./pages/Complains/Complain4D";
+import Complain5B  from "./pages/Complains/Complain5B";
 import All from "./pages/All";
 import StudentsProjects from "./pages/StudentsProjects";
 import Message from "./pages/Message";
-
+import TenantCreate from "./pages/TenantCreate";
+import Notice from './pages/Notice'
+import CaretakerVacation from "./pages/CareTakerVacation";
+import CaretakerComplain from "./pages/CareTakerComplain";
+import Expenses from "./pages/Expenses";
+import Responses from "./pages/Responses";
+import Vacation1A from "./pages/Vacations/Vacation1A";
+import TenantA from "./pages/TenantA";
+import ServicesG1 from "./pages/Services/ServicesG1";
+import ServicesG2 from "./pages/Services/ServicesG2";
+import Services1A from "./pages/Services/Services1A";
+import Services1B from "./pages/Services/Services1B";
+import Services1C from "./pages/Services/Services1C";
+import Services1D from "./pages/Services/Services1D";
+import Services2A from "./pages/Services/Services2A";
+import Services2B from "./pages/Services/Services2B";
+import Services2C from "./pages/Services/Services2C";
+import Services2D from "./pages/Services/Services2D";
+import Services3A from "./pages/Services/Services3A";
+import Services3B from "./pages/Services/Services3B";
+import Services3C from "./pages/Services/Services3C";
+import Services3D from "./pages/Services/Services3D";
+import Services4A from "./pages/Services/Services4A";
+import Services4B from "./pages/Services/Services4B";
+import Services4C from "./pages/Services/Services4C";
+import Services4D from "./pages/Services/Services4D";
+import Services5B from "./pages/Services/Services5B";
 function App() {
   
   const dispatch = useDispatch();
@@ -118,12 +180,79 @@ function App() {
               <Route path="/3a" element={<Tenant3A />} />
               <Route path="/3b" element={<Tenant3B />} />
               <Route path="/3c" element={<Tenant3C />} />
-              <Route path="/3d" element={<Tenant3D />} />
+              <Route path="/3d" element={<Tenant3D/>} />
               <Route path="/4a" element={<Tenant4A />} />
               <Route path="/4b" element={<Tenant4B />} />
               <Route path="/4c" element={<Tenant4C/>} />
               <Route path="/4d" element={<Tenant4D />} />
-              <Route path="/5a" element={<Tenant5A />} />
+              <Route path="/5b" element={<Tenant5A />} />
+              {/* //vacations */}
+              <Route path="/vacationg1" element={<VacationG1/>} />
+              <Route path="/vacationg2" element={<VacationG2/>} />
+              <Route path="/vacation1a" element={<Vacation1A />} />
+              <Route path="/vacation1b" element={<Vacation1B/>} />
+              <Route path="/vacation1c" element={<Vacation1C/>} />
+              <Route path="/vacation1d" element={<Vacation1D />} />
+              <Route path="/vacation2a" element={<Vacation2A />} />
+              <Route path="/vacation2b" element={<Vacation2B />} />
+              <Route path="/vacation2c" element={<Vacation2C />} />
+              <Route path="/vacation2c" element={<Vacation2D />} />
+              <Route path="/vacation2d" element={<Vacation2D />} />
+              <Route path="/vacation3a" element={<Vacation3A/>} />
+              <Route path="/vacation3b" element={<Vacation3B />} />
+              <Route path="/vacation3c" element={<Vacation3C />} />
+              <Route path="/vacation3d" element={<Vacation3D/>} />
+              <Route path="/vacation4a" element={<Vacation4A />} />
+              <Route path="/vacation4b" element={<Vacation4B/>} />
+              <Route path="/vacation4c" element={<Vacation4C/>} />
+              <Route path="/vacation4d" element={<Vacation4D />} />
+              <Route path="/vacation5b" element={<Vacation5B/>} />
+
+              {/* complains */}
+
+              <Route path="/compaling1" element={<ComplainG1 />} />
+              <Route path="/compaling2" element={<ComplainG2 />} />
+              <Route path="/compalin1a" element={<Complain1A />} />
+              <Route path="/compalin1b" element={<Complain1B />} />
+              <Route path="/compalin1c" element={<Complain1C />} />
+              <Route path="/compalin1d" element={<Complain1D />} />
+              <Route path="/compalin2a" element={<Complain2A />} />
+              <Route path="/compalin2b" element={<Complain2B />} />
+              <Route path="/compalin2c" element={<Complain2C />} />
+              <Route path="/compalin2d" element={<Complain2D />} />
+              <Route path="/compalin3a" element={<Complain3A />} />
+              <Route path="/compalin3b" element={<Complain3B />} />
+              <Route path="/compalin3c" element={<Complain3C />} />
+              <Route path="/compalin3d" element={<Complain3D />} />
+              <Route path="/compalin4a" element={<Complain4A />} />
+              <Route path="/compalin4b" element={<Complain4B />} />
+              <Route path="/compalin4c" element={<Complain4C/>} />
+              <Route path="/compalin4d" element={<Complain4D />} />
+              <Route path="/compalin5b" element={<Complain5B />} />
+
+               {/* Services */}
+
+               <Route path="/servicesg1" element={<ServicesG1 />} />
+              <Route path="/servicesg2" element={<ServicesG2/>} />
+              <Route path="/services1a" element={<Services1A/>} />
+              <Route path="/services1b" element={<Services1B />} />
+              <Route path="/services1c" element={<Services1C />} />
+              <Route path="/services1d" element={<Services1D/>} />
+              <Route path="/services2a" element={<Services2A/>} />
+              <Route path="/services2b" element={<Services2B />} />
+              <Route path="/services2c" element={<Services2C/>} />
+              <Route path="/services2d" element={<Services2D />} />
+              <Route path="/services3a" element={<Services3A />} />
+              <Route path="/services3b" element={<Services3B />} />
+              <Route path="/services3c" element={<Services3C  />} />
+              <Route path="/services3d" element={<Services3D />} />
+              <Route path="/services4a" element={<Services4A />} />
+              <Route path="/services4b" element={<Services4B />} />
+              <Route path="/services4c" element={<Services4C/>} />
+              <Route path="/services4d" element={<Services4D />} />
+              <Route path="/services5b" element={<Services5B/>} />
+
+
               <Route path="/message" element={<Message />} />
               <Route path="/message2" element={<Message2/>} />
 
@@ -148,7 +277,13 @@ function App() {
               <Route path="/complainb" element={<ComplainB/>} />
              <Route path="/complainc" element={<ComplainC/>} />
              <Route path="/users/:id" element={<Profile/>} />
-            
+             <Route path="/tenantcreate" element={<TenantCreate/>} />
+             <Route path="/notice" element={<Notice/>} />
+             <Route path="/caretakervacation" element={<CaretakerVacation/>} />
+             <Route path="/Caretakercomment" element={<CaretakerComplain/>} />
+             <Route path="/responses" element={<Responses/>} />
+             <Route path="/expenses" element={<Expenses/>} />
+
              {/* <Route path="/adminsidebar" element={<AdminSidebar/>} /> */}
              {/* <Route path="/main" element={<Admin />}/> */}
 

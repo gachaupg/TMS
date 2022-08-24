@@ -65,7 +65,7 @@ const handleDelete = (id) => {
  
 if(user?.result?.isAdmin){
     return(
-        <div style={{marginTop:'10rem'}}>
+        <div style={{marginTop:'5.5rem'}}>
             <StyledDashboard>
       <SideNav>
         <Link to='/'>
@@ -78,7 +78,7 @@ if(user?.result?.isAdmin){
           }
           to="summary"
         >
-          Complains
+          <p style={{color:'black'}}>Complains</p> 
         </NavLink>
         {/* <NavLink
           className={({ isActive }) =>
@@ -94,7 +94,7 @@ if(user?.result?.isAdmin){
           }
           to="/main/admincaretaker"
         >
-        Maintanance
+       <p style={{color:'black'}}>Maintanance</p> 
         </NavLink>
         <NavLink
           className={({ isActive }) =>
@@ -102,7 +102,7 @@ if(user?.result?.isAdmin){
           }
           to="/main/admintotalrent"
         >
-          Vacations
+          <p style={{color:'black'}}>Notices To Vacate</p> 
         </NavLink>
       </SideNav>
       <Content>
@@ -114,15 +114,15 @@ if(user?.result?.isAdmin){
 }
 if(user?.result?.caretaker ){
     return(
-        <div style={{marginTop:'10rem'}}>
+        <div style={{marginTop:'7rem'}}>
             {/* <Caretaker/> */}
             <CaretakeMainPage/>
         </div>
     )
-}else{
+}if(user?.result?._id){
     return (
     <div >
-    <h5 className="header" > Hello {user?.result?.name} </h5>
+    <h5 style={{color:'whitesmoke'}} className="header" > Hello {user?.result?.name} </h5>
     <div className="line"></div>
     <div  className="main">
       
@@ -149,6 +149,14 @@ if(user?.result?.caretaker ){
     </div>
     </div>
        )
+}else{
+  return(
+    <>
+    <Login/>
+  
+    </>
+  )
+  
 }
 
 
@@ -164,14 +172,18 @@ if(user?.result?.caretaker ){
 
 export default Main
 const StyledDashboard = styled.div`
-  display: flex;
+  /* display: flex;
   height: 100vh;
   flex-wrap:wrap;
-  background-image:url('https://www.vecteezy.com/vector-art/4821057-metropolitan-city-building-vector-skyscrapers-consist-of-offices-apartments-highways-business-areas-best-for-your-wallpaper-and-background')
+  background-image:url('https://www.vecteezy.com/vector-art/4821057-metropolitan-city-building-vector-skyscrapers-consist-of-offices-apartments-highways-business-areas-best-for-your-wallpaper-and-background') */
 `;
 
 const SideNav = styled.div`
-  border-right: 1px solid gray;
+display: flex;
+flex-direction: row;
+gap: 1rem;
+color: wheat !important;
+  /* border-right: 1px solid gray;
   height: calc(100vh - 70px);
   position: fixed;
   overflow-y: auto;
@@ -180,26 +192,27 @@ const SideNav = styled.div`
   flex-direction: column;
   padding: 2rem;
   color:bisque;
-  background-color: #806a78;
-
+  background-color: #806a78; */
+/* 
   h3 {
     margin: 0 0 1rem 0;
     padding: 0;
     text-transform: uppercase;
     font-size: 17px;
-  }
+  } */
 
   a {
-    text-decoration: none;
+    /* text-decoration: none;
     margin-bottom: 1rem;
     font-size: 14px;
     color:black;
-    font-size:1.3rem;
+    font-size:1.3rem; */
   }
 `;
 
+
 const Content = styled.div`
-  margin-left: 200px;
+  /* margin-left: 200px;
   padding: 2rem 3rem;
-  width: 100%;
+  width: 100%; */
 `;

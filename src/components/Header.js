@@ -61,10 +61,13 @@ const Header = () => {
            
             <MDBNavbarItem>
               <MDBNavbarLink href="/">
-                <p className="header-text">Home</p>
+                <p className="header-text"> <span >Home</span> </p>
               </MDBNavbarLink>
             </MDBNavbarItem>
            
+            
+
+
             {user?.result?._id ? (
               <MDBNavbarItem>
                 <MDBNavbarLink href="/login">
@@ -80,7 +83,15 @@ const Header = () => {
                 </MDBNavbarLink>
               </MDBNavbarItem>
             )}
+
+
+
+
           </MDBNavbarNav>
+
+
+
+         
           {/* <form className="d-flex input-group w-auto" >
             <input
               type="text"

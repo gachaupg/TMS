@@ -1,61 +1,375 @@
-import axios from 'axios'
+
+
+import './Details/table.css'
+import * as React from 'react';
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import axios from 'axios';
+import { useState } from 'react';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react'
+import { format } from 'timeago.js';
+import { useDispatch, useSelector } from "react-redux";
 
-const All = () => {
-    const [admin,setAdmin]=useState([]);
 
-    useEffect(()=>{
+
+
+
+
+
+
+
+
+
+const columns = [
+{security:'Security',Electricitycharges:''},
+{security:'Electricity charges'},
+{security:'Cleaning material'},
+{security:'Water Charges'},
+{security:'Caretaker Salary'},
+{security:'Maintenance charges'},
+{security:'Breadband(wifi)'},
+{security:'Total Operational Cost'},
+  
+];
+
+
+const AdminSidebar = () =>{
+  const [tours,setTours]=React.useState([])
+const [total,setTotal]=useState([])
+const [expenses,setExpenses]=useState([])
+const [totalwifi,setTotalWifi]=useState([])
+const [totalwater,setTotalWater]=useState([])
+const [users,setTotalWaters]=useState([])
+const { user } = useSelector((state) => ({ ...state.auth }));
+const X=19
+function compare(a,b){
+  if(a._id <b._id){
+    return 1
+  }
+  if(a._id >b._id){
+    return -1
+  }return 0
+}
+
+
+  React.useEffect(()=>{
+    async function fetchData(){
+    try {
+      const res= await axios.get('http://localhost:5000/stats/chartss');
+      res.data.sort(compare)
+      setTours(  res.data)
+      setTotalWaters(res.data.map[0].createdAt)
+        
+      
+      console.log('hey',tours);
+     } catch (error) {
+      console.log(error);
+
+
+      
+    }
+    }
+    fetchData()
+      },[])
+
+      
+  React.useEffect(()=>{
+    async function fetchData(){
+    try {
+      const res= await axios.get('http://localhost:5000/stats/totalrentb')
+      res.data.sort(compare)
+      setTotal(  res.data)
+      console.log(res.data[0].houseNo);
+      console.log('hey',total);
+     } catch (error) {
+      console.log(error);
+
+
+      
+    }
+    }
+    fetchData()
+      },[])
+
+      React.useEffect(()=>{
         async function fetchData(){
         try {
-          const res= await axios.get('http://localhost:5000/stats/chartss')
-          setAdmin(  res.data)
-          console.log(admin);
+          const res= await axios.get('http://localhost:5000/stats/totalwifi')
+          setTotalWifi(  res.data)
+          
+          console.log('hey',totalwifi);
          } catch (error) {
           console.log(error);
+    
+    
           
         }
         }
         fetchData()
           },[])
 
-  return (<>
-    <h4 className='headers'>Apartment A all Rents Progress</h4>
-
-    <div  className='rent-page'>
-    {admin.map((items)=>{
-      return(
-        <div className='rent-card'>
-        <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
-
-              {/* <p>Name: {items.name}</p>
-              <p> RentPaid: {items.amount}</p>
-              <p>ApartMent: {items.apartment}</p>
-              <p> HouseNo: {items.houseNo}</p>
-              <p>IdNo: {items.idNo}</p>
-              <p>WaterFee: {items.waterFee}</p>  */}
-              <p className='rentss'> <p> Name:   </p> <p>{items.name}</p> </p>
-              <p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
-              <p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
-              <p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
-              <p className='rentss'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
-              <p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
-              <p className='rentss'> <p>Last Water Read:</p> <p>{items.lastRead}</p> </p> 
-              <p className='rentss'> <p>Method of payment:</p> <p>{items.payment}</p> </p> 
-              <p className='rentss'> <p>Date of Payment:</p> <p>{items.datePaid}</p> </p> 
-              <p className='rentss'> <p>Type of the rental:</p> <p>{items.aptType}</p> </p> 
-              <p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
-
-
-              Balance:
-              <p>{items.aptType==='1bedroom' ? items.plotA-items.amount: null}</p>
-              <p>{items.aptType==='2bedroom' ? items.plotA-items.amount: null}</p>
+          React.useEffect(()=>{
+            async function fetchData(){
+            try {
+              const res= await axios.get('http://localhost:5000/stats/totalwater')
+              res.data.sort(compare)
+              setTotalWater(  res.data)
+              console.log(res.data[0]._id);
+             } catch (error) {
+              console.log(error);
+        
+        
               
-              </div>
-      )
-    })}
-    </div>
- </> )
-}
+            }
+            }
+            fetchData()
+              },[])
+              React.useEffect(()=>{
+                async function fetchData(){
+                try {
+                  const res= await axios.get('http://localhost:5000/expenses')
+                  res.data.sort(compare)
+                  setExpenses(  res.data)
+                  console.log('expenses',expenses);
+                 } catch (error) {
+                  console.log(error);
+            
+            
+                  
+                }
+                }
+                fetchData()
+                  },[])
+    
 
-export default All
+
+      const rows =  [
+        
+          
+        {
+         
+          digits:totalwater[0]?._id,
+        
+         
+        },
+      ]
+      const currentMonth = moment().subtract(1, 'months').format('MMM');  
+      const currentMonth1 = moment().month()+1; 
+  const test=moment().format() 
+  return (
+    // <div style={{ height: 1000, width: '100%' }}>
+    //   <DataGrid
+    //     rows={rows}
+    //     columns={columns}
+        
+    //     // pageSize={5}
+    //     rowsPerPageOptions={[5]}
+    //     checkboxSelection
+    //   />
+    // </div>
+
+    <div className='app-container'>
+     
+
+     {rows.map((i)=>{
+      return(
+        <>
+        {i.digits}
+        
+{/* 
+// {tours.length} */}
+{currentMonth1}
+{/* {totalwater[0]._id} */}
+{/* {tours[0].createdAt} */}
+{/* {currentMonth1===totalwifi[0]._id?( */}
+
+{i.digits===currentMonth1?(
+  <table>
+
+<thead>
+  <tr>
+<th>time{user.length}</th>
+<th>House number</th>
+<th>Tenant Name</th>
+<th>Monthly Rent</th>
+<th>Wifi</th>
+<th>Water</th>
+<th>Arrears</th>
+<th>Penalty</th>
+<th>Balance</th>
+<th>Contract Renewal</th>
+<th>Comments</th>
+
+
+  </tr>
+</thead>
+
+
+
+  {tours && tours?.map((item)=>{
+
+    return(
+      <>
+       
+
+      <tr>
+        <td>{format(item.createdAt)}</td>
+    
+    
+    <td>{item.houseNo}</td>
+    <td>{item.name}</td>
+    <td>{item.amount}</td>
+    <td>{item.wifi}</td>
+    <td>{item.waterFee}</td>
+    <td>{item.arrears}</td>
+    <td>{item.penalties}</td>
+    <td>{item.balance}</td>
+   
+  </tr> 
+
+
+  </>
+    )
+  
+    
+  })}
+ 
+
+
+{expenses && expenses?.map((item)=>{
+  return(
+
+  <>
+  <p>        <h3 className='month'>month of {moment().format(' MM ')}</h3>
+</p>
+  <p>{format(item.createdAt)}</p>
+  <thead>
+  <tr>
+
+<th>Operational Cost</th>
+
+</tr>
+</thead>
+  <tbody>
+<tr>
+   <td>Security Charges</td>
+   <td>{item.security}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Electricity charges</td>
+   <td>{item.electricityCharges}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Cleaning materials</td>
+   <td>{item.clean}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Water Charges</td>
+   <td>{item.waterCharges}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Caretaker Salary</td>
+   <td>{item.careTakerSalary}</td>
+  </tr>
+</tbody>
+
+<tbody>
+<tr>
+   <td>Maintenance charges</td>
+   <td>{item.maintananceSalary}</td>
+  </tr>
+</tbody><tbody>
+<tr>
+   <td>Broadband(wifi)</td>
+   <td>{item.wifi}</td>
+  </tr>
+</tbody><tbody>
+<tr>
+   <td>Total Operational Cost'</td>
+   <td>{item.security+item.electricityCharges+item.waterCharges+item.clean
+   +item.careTakerSalary+item.maintananceSalary+item.wifi}</td>
+  </tr>
+</tbody>
+</>)
+})} 
+
+{totalwifi.map((item)=>{
+  return(
+    <>
+    <p>        <h3 className='month'>month of {moment().format(' MM ')}</h3>
+</p>
+<p>{format(item.createdAt)}</p>
+<thead>
+  <tr>
+  
+  
+<th>Repayments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+   <td>Tenants water repayments</td>
+   <td>{item.total3}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Tenants wifi repayments</td>
+   <td>{item.total}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Total monthky rent</td>
+   <td>{item.total2}</td>
+  </tr>
+</tbody>
+<tbody>
+<tr>
+   <td>Total Repayments</td>
+  {item.total3+item.total+item.total2}
+  </tr>
+
+
+  <thead>
+    <tr>
+      <th>Monthly Revenue</th>
+      {totalwater.map((i)=>{
+        return(
+          <div>
+           {(item.total3+item.total+item.total2)-(i.count)} 
+          </div>
+        )
+      })}
+      
+    </tr>
+  </thead>
+</tbody>
+
+    </>
+  )
+})}
+
+
+
+  
+</table>
+):null}
+  
+  
+{/* ):'rrr'} */}
+</>
+      )
+     })}
+
+    </div>
+  );
+}
+export default AdminSidebar

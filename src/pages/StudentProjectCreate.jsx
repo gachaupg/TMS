@@ -103,33 +103,33 @@ return (
 
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'6rem'}} className='form'>
   
-  <h2>{id? 'update your values':'Pay Rent'}</h2>
+  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':'Pay Rent'}</h2>
     <div className="main-rent-create">
  
 {/* <Projects/> */}
 <div className="rent-split-start">
-    <input className='form-input' type='text'  placeholder='Apartment eg A or B or C' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/>
+    {/* <input className='form-input' type='text'  placeholder='Apartment eg A or B or C' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/> */}
     <input className='form-input' type='text'  placeholder='Name' onChange={(e)=> setUser({...users , name:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder='rent' onChange={(e)=> setUser({...users , amount:e.target.value})} required/>
-    <input className='form-input' type='text' placeholder='Mpesa code/bank sms' onChange={(e)=> setUser({...users ,payment:e.target.value})}/>
-     <input className='form-input' type='number' placeholder='Id Number' onChange={(e)=> setUser({...users ,idNo:e.target.value})} required/>
-    <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
-    <input className='form-input' type='text' placeholder='arrears' onChange={(e)=> setUser({...users ,arrears:e.target.value})} required/>
-    <input className='form-input' type='text' placeholder='Penalties' onChange={(e)=> setUser({...users ,penalties:e.target.value})} required/>
+    <input className='form-input' type='number' placeholder=' monthly Rentrent' onChange={(e)=> setUser({...users , amount:e.target.value})} required/>
+    <input className='form-input' type='number' placeholder='Deposits' onChange={(e)=> setUser({...users ,payment:e.target.value})}/>
+    {/* <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/> */}
+    <input className='form-input' type='number' placeholder='arrears' onChange={(e)=> setUser({...users ,arrears:e.target.value})} />
+    <input className='form-input' type='number' placeholder='Penalties' onChange={(e)=> setUser({...users ,penalties:e.target.value})} />
+    <input className='form-input' type='number' placeholder='Contract Renewal' onChange={(e)=> setUser({...users ,aptType:e.target.value})}/>
+    <input className='form-input' type='number' placeholder='wifi' onChange={(e)=> setUser({...users ,wifi:e.target.value})} />
 
     </div>
     <div className="rent-split">
     <input className='form-input' type='number' placeholder='tenant Phone Number' onChange={(e)=> setUser({...users ,phone:e.target.value})}/>
-    <input className='form-input' type='text' placeholder='wifi' onChange={(e)=> setUser({...users ,wifi:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder='curren water read' onChange={(e)=> setUser({...users ,currentRead:e.target.value})}/>
-    <input className='form-input' type='number' placeholder='Last water read' onChange={(e)=> setUser({...users ,lastRead:e.target.value})}/>
+    <input className='form-input' type='number' placeholder='current water read' onChange={(e)=> setUser({...users ,currentRead:e.target.value})}/>
+    <input className='form-input' type='number' placeholder='Previous water read' onChange={(e)=> setUser({...users ,lastRead:e.target.value})}/>
+    <input className='form-input' type='number' placeholder='Water Bill' onChange={(e)=> setUser({...users ,waterFee:e.target.value})}/>
+    <input className='form-input' type='text' placeholder='Comments' onChange={(e)=> setUser({...users ,apartment:e.target.value})}/>
+    <input className='form-input' type='number' placeholder='balance' onChange={(e)=> setUser({...users ,balance:e.target.value})} />
     <input className='form-input' type='text' placeholder='date of payment eg 17/04/2022' onChange={(e)=> setUser({...users ,datePaid:e.target.value})}/>
-    <input className='form-input' type='text' placeholder='one or two bedroom eg 1bedroom' onChange={(e)=> setUser({...users ,aptType:e.target.value})}/>
-    <input className='form-input' type='number' placeholder='Last water read' onChange={(e)=> setUser({...users ,lastRead:e.target.value})}/>
-    <input className='form-input' type='number' placeholder='water Bill' onChange={(e)=> setUser({...users ,waterFee:e.target.value})}/>
-    <input className='form-input' type='text' placeholder='balance' onChange={(e)=> setUser({...users ,balance:e.target.value})} />
 
+{/* 
      mpesa screenshot
               <FileBase
                 type="file"
@@ -138,7 +138,7 @@ return (
                 onDone={({ base64 }) =>
                   setUser({ ...users, imageFile: base64 })
                 }
-              />
+              /> */}
   </div>           
      
 

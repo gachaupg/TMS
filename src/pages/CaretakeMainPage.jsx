@@ -31,7 +31,7 @@ const CaretakeMainPage = () => {
       },[])
   return (
     <div className="tenant-page">
-        <h5>Hello {user?.result?.name}  </h5>
+        <h5 style={{color:'whitesmoke'}}>Hello {user?.result?.name}  </h5>
         <div className="tenant-header"> 
         
         <Link to='/caretaker'>
@@ -52,10 +52,16 @@ const CaretakeMainPage = () => {
                     Rent Payment
                     </button>
                 </Link>
+               
             {/* <Caretaker/> */}
         </div>
         
             <div className="tenant-header">
+            <Link to='/notice'>
+                    <button className="btn">
+                    Notice To Rent Payment
+                    </button>
+                </Link>
 
             {/* <Link to='/message2'>
 {/*           */}
@@ -66,17 +72,29 @@ const CaretakeMainPage = () => {
      </Link>  */}
                 <Link to='/vacations'>
                     <button className="btn">
-                    Vacations
+                    Notice to Vacate
                     </button>
                 </Link>
             
+                
                 <Link to='/complains'>
                     <button className="btn">
-                    Complains
+                    Complains and Compliments
                     </button>
-                </Link>
-            </div>
-            
+                </Link>   
+
+{/* <Link to='/message2'>
+{/*           */}
+{/* <button className='btn'>
+Messange
+
+</button>
+</Link>  */}
+   
+
+    
+</div>
+
        
     </div>
   )

@@ -1,0 +1,75 @@
+Date : 2022-08-23 18:55:41
+Directory : c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server
+Total : 45 files,  7879 codes, 552 comments, 892 blanks, all 9323 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |      4,270 |          0 |          2 |      4,272 |
+| JavaScript |         42 |      3,604 |        552 |        890 |      5,046 |
+| Properties |          1 |          5 |          0 |          0 |          5 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                  | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                     |         45 |      7,879 |        552 |        892 |      9,323 |
+| controllers                                                                                           |         11 |      1,195 |        155 |        227 |      1,577 |
+| middleware                                                                                            |          2 |         55 |          2 |          8 |         65 |
+| models                                                                                                |         10 |        223 |         37 |         71 |        331 |
+| routes                                                                                                |         18 |      2,073 |        341 |        572 |      2,986 |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                              | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\.env                               | Properties |          5 |          0 |          0 |          5 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\Expenses.js            | JavaScript |        116 |          2 |         22 |        140 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\caretaker.js           | JavaScript |          0 |        137 |         20 |        157 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\caretakerCompliment.js | JavaScript |        130 |          2 |         20 |        152 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\caretakercomment.js    | JavaScript |        130 |          2 |         21 |        153 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\complain.js            | JavaScript |        130 |          2 |         21 |        153 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\milestone.js           | JavaScript |        135 |          2 |         20 |        157 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\tenant.js              | JavaScript |        116 |          2 |         22 |        140 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\tenantNotice.js        | JavaScript |        116 |          2 |         22 |        140 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\tour.js                | JavaScript |        125 |          2 |         21 |        148 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\user.js                | JavaScript |         67 |          0 |         18 |         85 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\controllers\vacation.js            | JavaScript |        130 |          2 |         20 |        152 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\index.js                           | JavaScript |         58 |         17 |         12 |         87 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\middleware\admin.js                | JavaScript |         32 |          2 |          5 |         39 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\middleware\auth.js                 | JavaScript |         23 |          0 |          3 |         26 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\Expenses.js                 | JavaScript |         16 |          0 |          5 |         21 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\caretakerComment.js         | JavaScript |         24 |          3 |          9 |         36 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\caretakervacationNotice.js  | JavaScript |         25 |          3 |          8 |         36 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\complains.js                | JavaScript |         24 |          3 |          8 |         35 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\milestone.js                | JavaScript |         25 |         25 |         14 |         64 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\tenant.js                   | JavaScript |         19 |          0 |          4 |         23 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\tenatNotice.js              | JavaScript |         16 |          0 |          5 |         21 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\tour.js                     | JavaScript |         35 |          0 |          7 |         42 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\user.js                     | JavaScript |         14 |          0 |          3 |         17 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\models\vacation.js                 | JavaScript |         25 |          3 |          8 |         36 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\package-lock.json                  | JSON       |      4,244 |          0 |          1 |      4,245 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\package.json                       | JSON       |         26 |          0 |          1 |         27 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\admin.js                    | JavaScript |        814 |        125 |        258 |      1,197 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\all.js                      | JavaScript |          0 |          0 |          1 |          1 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\caretaker.js                | JavaScript |          0 |         26 |          5 |         31 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\caretakerComment.js         | JavaScript |         36 |          0 |          9 |         45 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\caretakerVacation.js        | JavaScript |         36 |          0 |         12 |         48 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\complain.js                 | JavaScript |         36 |          0 |          9 |         45 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\expenses.js                 | JavaScript |         21 |          0 |         12 |         33 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\match.js                    | JavaScript |         52 |          9 |         14 |         75 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\matchVacation.js            | JavaScript |         52 |          9 |         14 |         75 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\milestone.js                | JavaScript |         21 |          1 |          7 |         29 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\services.js                 | JavaScript |        294 |         57 |         62 |        413 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\specificComplain.js         | JavaScript |        295 |         57 |         62 |        414 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\specificVacations.js        | JavaScript |        296 |         57 |         62 |        415 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\tenant.js                   | JavaScript |         21 |          0 |         10 |         31 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\tenantNotice.js             | JavaScript |         21 |          0 |         12 |         33 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\tour.js                     | JavaScript |         35 |          0 |          8 |         43 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\user.js                     | JavaScript |          7 |          0 |          5 |         12 |
+| c:\Users\ADMIN\Desktop\silvet\tenant-management-system-new-\server\routes\vacation.js                 | JavaScript |         36 |          0 |         10 |         46 |
+| Total                                                                                                 |            |      7,879 |        552 |        892 |      9,323 |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
