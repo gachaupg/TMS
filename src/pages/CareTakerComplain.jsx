@@ -55,7 +55,7 @@ useEffect(() => {
 return (
  
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'10rem'}} className='form'>
-  <h2 style={{color:'whitesmoke'}}>Cpmpliments/Complain</h2>
+  <h2 style={{color:'whitesmoke'}}>Compliments/Complain</h2>
   <div className="main-rent-create">
   <div className="rent-split-start">
     {/* <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/> */}

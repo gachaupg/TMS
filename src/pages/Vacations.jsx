@@ -2,8 +2,13 @@ import axios from 'axios';
 import {format} from 'timeago.js'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteVacation } from '../redux/features/vacation';
+import {toast} from 'react-toastify'
 
-function compare(a,b){
+
+const Responses = () => {
+  function compare(a,b){
     if(a._id <b._id){
       return 1
     }
@@ -11,9 +16,9 @@ function compare(a,b){
       return -1
     }return 0
   }
-const Responses = () => {
   const [admin,setAdmin]=useState([]);
-  
+  const dispatch=useDispatch()
+
   useEffect(()=>{
       async function fetchData(){
       try {
@@ -28,6 +33,14 @@ const Responses = () => {
       }
       fetchData()
         },[])
+
+        const handleDelete = (id) => {
+          if (window.confirm("Are you sure you want to delete this tour ?")) {
+            dispatch(deleteVacation({ id, toast }));
+          }
+        };
+
+
   return (
     <>
      
@@ -49,7 +62,9 @@ const Responses = () => {
               <p> houseNo: {items.houseNo}</p>
               <p>Reason if any: {items.reason}</p>
               <p>Contract Reabewal: {items.contractRenewal}</p>
-              
+              <button className="btn" onClick={() => handleDelete(items._id)}>
+                delete
+              </button>
 
              
               </div>

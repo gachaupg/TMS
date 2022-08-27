@@ -62,11 +62,12 @@ const [date,setDate]=useState([])
     <div className="tenant-page">
         {rows.map((i)=>{
     return(
-        <div>{currentMonth===i.digits+4?
+        <div>{currentMonth===i.digits+4 ?
             <>
-            <p className="icon">NOTICE! NOTICE!</p>
+            <p className="icon">NOTICE! NOTICE! </p>
+
             <br />
-             your contact remains two months 
+            <p className="text-rem"> hello {user?.result?.name}your contact remains two months</p> 
             <Link to='/vacation'>  Click here to Review</Link></>: null}</div>
     )
 })}

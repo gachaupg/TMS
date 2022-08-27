@@ -2,6 +2,9 @@ import axios from 'axios';
 import {format} from 'timeago.js'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import {toast} from 'react-toastify'
+import { useDispatch } from 'react-redux';
+import { deleteComplain } from '../redux/features/complain';
 
 function compare(a,b){
     if(a._id <b._id){
@@ -13,7 +16,8 @@ function compare(a,b){
   }
 const Responses = () => {
   const [admin,setAdmin]=useState([]);
-  
+  const dispatch=useDispatch()
+
   useEffect(()=>{
       async function fetchData(){
       try {
@@ -27,6 +31,14 @@ const Responses = () => {
       }
       fetchData()
         },[])
+
+        const handleDelete = (id) => {
+          if (window.confirm("Are you sure you want to delete this tour ?")) {
+            dispatch(deleteComplain({ id, toast }));
+          }
+        };
+
+
   return (
     <>
     
@@ -49,7 +61,9 @@ const Responses = () => {
               <p> houseNo: {items.houseNo}</p>
               <p>complain {items.complain}</p>
               
-             
+              <button className="btn" onClick={() => handleDelete(items._id)}>
+                delete
+              </button>
               </div>
       )
     })}

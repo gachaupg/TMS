@@ -30,7 +30,7 @@ const VacationsA = () => {
 
   return (
     <>
-    <h4 className='headers'>Apartment B all Vacations</h4>
+    <h4 className='headers'>Notices to vacate</h4>
     <div  className='rent-page'>
     {admin.map((items)=>{
       return(

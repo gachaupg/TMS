@@ -169,6 +169,9 @@ h4:after {
   width:  1px;
   color: #000;
 }
+.screenshot{
+  color: whitesmoke;
+}
 .color1{
   border-radius: 1rem;
   align-items: center;
@@ -176,19 +179,24 @@ h4:after {
   width: 50%;
   background-color: green !important;
 }
+.text-rem{
+  color: #5c31f9;
+  font-size: 1.5rem;
+}
 .color2{
-  border-radius: 1rem;
+  
   text-align: center;
-  width: 50%;
+  
   background-color: red !important;
   text-align: center;
+  color: #faf8f8;
 }
 .datas{
   display: flex;
   flex-direction: column;
   gap: 1rem;
   color: #fcfaf9;
-  width: 40%;
+  width: 30rem;
   background-color: aliceblue;
   color: #000;
   align-items: center;
@@ -207,7 +215,7 @@ h4:after {
 }
 .btn{
   height: 2.5rem;
-  width: 11.8rem;
+  width: 12.8rem;
   background-image: url('./Assets/wood1.jpg') !important;
   /* background-color: #da89bc !important; */
   border-radius: 1rem;
@@ -585,7 +593,7 @@ justify-content: space-between;
   align-items: center;
   justify-content: center;
   gap :2rem;
- background-color: #dba4c6;
+ background-color: #352e32;
  padding: 1rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
@@ -594,6 +602,9 @@ justify-content: space-between;
 .rent-split-start{
   display: flex;
   flex-direction: column;
+}
+.rent-split-start .FileBase{
+color: whitesmoke;
 }
 .rent-split{
   display: flex;
@@ -763,7 +774,7 @@ margin-left: 1px;
  border-radius: 1rem;
  align-items: center;
  justify-content: center;
- width: 25%;
+ width: 20rem;
  padding: 1rem;
 }
 .btn:hover{
@@ -830,4 +841,31 @@ margin-left: 1px;
   justify-content: center;
   align-items: center;
 background-color: #fdfcfd;
+}
+
+.main-users{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 4rem;
+}
+.all-users{
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  background-color: whitesmoke;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+ 
+  border-radius: 0.4rem;
+}
+.all-users p{
+  margin-top: 1rem;
+  text-align: center;
+  justify-content: center;
+}
+.user-icon{
+  color: #f93154;
+  font-size: 2rem;
 }

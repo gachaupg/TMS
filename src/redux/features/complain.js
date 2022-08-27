@@ -63,11 +63,11 @@ export const getTour = createAsyncThunk(
     }
   }
 );
-export const deleteTour = createAsyncThunk(
-  "tour/deleteTour",
+export const deleteComplain = createAsyncThunk(
+  "tour/deleteComplain",
   async ({ id, toast }, { rejectWithValue }) => {
     try {
-      const response = await api.deleteTour(id);
+      const response = await api.deleteComplain(id);
       toast.success("Tour Deleted Successfully");
       return response.data;
     } catch (err) {
@@ -212,10 +212,10 @@ export const getRelatedTours = createAsyncThunk(
         state.loading = false;
         state.error = action.payload.message;
       },
-      [deleteTour.pending]: (state, action) => {
+      [deleteComplain.pending]: (state, action) => {
         state.loading = true;
       },
-      [deleteTour.fulfilled]: (state, action) => {
+      [deleteComplain.fulfilled]: (state, action) => {
         state.loading = false;
         const {
           arg: { id },
@@ -225,7 +225,7 @@ export const getRelatedTours = createAsyncThunk(
           state.tours = state.tours.filter((item) => item._id !== id);
         }
       },
-      [deleteTour.rejected]: (state, action) => {
+      [deleteComplain.rejected]: (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       },

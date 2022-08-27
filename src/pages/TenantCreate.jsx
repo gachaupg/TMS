@@ -116,8 +116,9 @@ return (
     <input className='form-input' type='text'  placeholder='Name' onChange={(e)=> setUser({...users , name:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
    
-      rent mpesa screenshot
+      <h5 className='screenshot'> rent mpesa screenshot</h5>
               <FileBase
+              className='FileBase'
                 type="file"
                 placeholder='mpesa screenshot'
                 multiple={false}
@@ -125,7 +126,8 @@ return (
                   setUser({ ...users, imageFile1: base64 })
                 }
               /> 
-              Water mpesa screenshot
+                    <h5 className='screenshot'> water bill mpesa screenshot</h5>
+
               <FileBase
                 type="file"
                 placeholder='mpesa screenshot'
@@ -134,7 +136,8 @@ return (
                   setUser({ ...users, imageFile2: base64 })
                 }
               />
-              Wifi mpesa screenshot
+                    <h5 className='screenshot'> wificharges mpesa screenshot</h5>
+
               <FileBase
                 type="file"
                 placeholder='mpesa screenshot'

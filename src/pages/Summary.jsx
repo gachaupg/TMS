@@ -64,7 +64,6 @@ useEffect(()=>{
               <h4>{format(item.createdAt)}</h4> 
 
               <p>Name: {item.name}</p>
-             <p> Aparment: {item.apartment}</p> 
              <p> HouseNo: {item.houseNo}</p> 
              <p> Complain: {item.complain}</p> 
              <p> Notice Date: {item.remTime}</p> 

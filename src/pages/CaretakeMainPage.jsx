@@ -79,7 +79,7 @@ const CaretakeMainPage = () => {
                 
                 <Link to='/complains'>
                     <button className="btn">
-                    Complains and Compliments
+                    Complains/Compliments
                     </button>
                 </Link>   
 

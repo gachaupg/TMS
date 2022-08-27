@@ -21,6 +21,8 @@ export const getMiles = () => API.get("/milestone");
 export const createComplain = (formData) => API.post("/complain", formData);
 export const createVacation = (formData) => API.post("/vacation", formData);
 export const deleteMilestone = (id) => API.delete(`/milestone/${id}`);
+export const deleteVacation = (id) => API.delete(`/vacation/${id}`);
+export const deleteComplain = (id) => API.delete(`/complain/${id}`);
 
 
 export const createcaretakernotice = (formData) => API.post("/caretakercomplain", formData);
@@ -44,6 +46,11 @@ export const getTenants = () => API.get("/tenant");
 export const getTenant = (id) => API.get(`/tenant/${id}`);
 export const deleteTenant = (id) => API.delete(`/tenant/${id}`);
 export const getTenantByUser = (userId) => API.get(`/tenant/userProjects/${userId}`);
+
+//users
+export const getUsers=()=>API.get('/usercrud/allusers')
+export const deleteUsers = (id) => API.delete(`/usercrud/delete/${id}`);
+
 
 
 export const createnotice = (formData) => API.post("/notice", formData);

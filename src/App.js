@@ -130,6 +130,7 @@ import Services4B from "./pages/Services/Services4B";
 import Services4C from "./pages/Services/Services4C";
 import Services4D from "./pages/Services/Services4D";
 import Services5B from "./pages/Services/Services5B";
+import Users from "./pages/Users";
 function App() {
   
   const dispatch = useDispatch();
@@ -165,7 +166,7 @@ function App() {
               <Route path="/rents" element={<StudentsProjects/>} />
 
              <Route path="/search" element={<All/>} />
-
+             <Route path="/users" element={<Users/>} />
               <Route path="/apartmentAr" element={<TenantA />} />
               <Route path="/g2" element={<TenantG2 />} />
               <Route path="/1a" element={<Tenant1A />} />

@@ -4,47 +4,12 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { url,setHeaders } from "./api";
 
-export const createVacation = createAsyncThunk(
-  "projects/createVacation",
-  async (values) => {
-    try {
-      const response = await api.createVacation(values)
 
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      toast.error(error.response?.data);
-    }
-  }
-);
-// export const getProjects = createAsyncThunk(
-//   "project/getProject",
-//   async (_, {rejectWithValue}) => {
-//     try {
-//       const response = await api.getprojects()
-//         return response.data;
-//     } catch (error) {
-//       console.log(error);
-//       toast.error(error.response?.data);
-//     }
-//   }
-// );
-export const getProjectsByUser = createAsyncThunk(
-  "tour/getProjectsByUser",
-  async (userId, { rejectWithValue }) => {
-    try {
-      const response = await api.getProjectsByUser(userId);
-      return response.data;
-    } catch (err) {
-      return rejectWithValue(err.response.data);
-    }
-  }
-);
-export const getTours = createAsyncThunk(
-  "tour/getTours",
+export const getUsers = createAsyncThunk(
+  "user/getUsers",
   async (page, { rejectWithValue }) => {
     try {
-      const response = await api.getTours(page);
+      const response = await api.getUsers(page);
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -53,7 +18,7 @@ export const getTours = createAsyncThunk(
 );
 
 export const getTour = createAsyncThunk(
-  "tour/getTour",
+  "user/getTour",
   async (id, { rejectWithValue }) => {
     try {
       const response = await api.getTour(id);
@@ -63,12 +28,12 @@ export const getTour = createAsyncThunk(
     }
   }
 );
-export const deleteVacation = createAsyncThunk(
-  "tour/deleteVacation",
+export const deleteTUsers = createAsyncThunk(
+  "user/deleteTUsers",
   async ({ id, toast }, { rejectWithValue }) => {
     try {
-      const response = await api.deleteVacation(id);
-      toast.success("Tour Deleted Successfully");
+      const response = await api.deleteUsers(id);
+      toast.success("Deleted Successfully");
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -126,8 +91,8 @@ export const getRelatedTours = createAsyncThunk(
   }
 );
 
-  const vacationSlice = createSlice({
-    name: "project",
+  const userSlice = createSlice({
+    name: "user",
     initialState: {
       tour: {},
       tours: [],
@@ -146,7 +111,7 @@ export const getRelatedTours = createAsyncThunk(
       error: "",
       loading: false,
     },
-    reducers: {
+    // reducers: {
     //   setUser: (state, action) => {
     //     state.user = action.payload;
     //   },
@@ -154,19 +119,19 @@ export const getRelatedTours = createAsyncThunk(
     //     localStorage.clear();
     //     state.user = null;
     //   },
-    },
+    // },
     extraReducers: {
-      [createVacation.pending]: (state, action) => {
-        state.loading = true;
-      },
-      [createVacation.fulfilled]: (state, action) => {
-        state.loading = false;
-        state.projects = action.payload;
-      },
-      [createVacation.rejected]: (state, action) => {
-        state.loading = false;
-        state.error = action.payload.message;
-      },
+    //   [createProject.pending]: (state, action) => {
+    //     state.loading = true;
+    //   },
+    //   [createProject.fulfilled]: (state, action) => {
+    //     state.loading = false;
+    //     state.projects = action.payload;
+    //   },
+    //   [createProject.rejected]: (state, action) => {
+    //     state.loading = false;
+    //     state.error = action.payload.message;
+    //   },
       // [getProjects.pending]: (state, action) => {
       //   state.loading = true;
       // },
@@ -178,26 +143,26 @@ export const getRelatedTours = createAsyncThunk(
       //   state.loading = false;
       //   state.error = action.payload.message;
       // },
-      [getProjectsByUser.pending]: (state, action) => {
+    //   [getProjectsByUser.pending]: (state, action) => {
+    //     state.loading = true;
+    //   },
+    //   [getProjectsByUser.fulfilled]: (state, action) => {
+    //     state.loading = false;
+    //     state.projects = action.payload;
+    //   },
+    //   [getProjectsByUser.rejected]: (state, action) => {
+    //     state.loading = false;
+    //     state.error = action.payload.message;
+    //   },
+      [getUsers.pending]: (state, action) => {
         state.loading = true;
       },
-      [getProjectsByUser.fulfilled]: (state, action) => {
+      [getUsers.fulfilled]: (state, action) => {
         state.loading = false;
-        state.projects = action.payload;
-      },
-      [getProjectsByUser.rejected]: (state, action) => {
-        state.loading = false;
-        state.error = action.payload.message;
-      },
-      [getTours.pending]: (state, action) => {
-        state.loading = true;
-      },
-      [getTours.fulfilled]: (state, action) => {
-        state.loading = false;
-        state.tours = action.payload.data;
+        state.projects = action.payload.data;
         
       },
-      [getTours.rejected]: (state, action) => {
+      [getUsers.rejected]: (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       },
@@ -206,16 +171,16 @@ export const getRelatedTours = createAsyncThunk(
       },
       [getTour.fulfilled]: (state, action) => {
         state.loading = false;
-        state.tour = action.payload;
+        state.projects = action.payload;
       },
       [getTour.rejected]: (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       },
-      [deleteVacation.pending]: (state, action) => {
+      [deleteTUsers.pending]: (state, action) => {
         state.loading = true;
       },
-      [deleteVacation.fulfilled]: (state, action) => {
+      [deleteTUsers.fulfilled]: (state, action) => {
         state.loading = false;
         const {
           arg: { id },
@@ -225,7 +190,7 @@ export const getRelatedTours = createAsyncThunk(
           state.tours = state.tours.filter((item) => item._id !== id);
         }
       },
-      [deleteVacation.rejected]: (state, action) => {
+      [deleteTUsers.rejected]: (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       },
@@ -238,10 +203,10 @@ export const getRelatedTours = createAsyncThunk(
           arg: { id },
         } = action.meta;
         if (id) {
-          state.userTours = state.userTours.map((item) =>
+          state.projects = state.projects.map((item) =>
             item._id === id ? action.payload : item
           );
-          state.tours = state.tours.map((item) =>
+          state.projects = state.projects.map((item) =>
             item._id === id ? action.payload : item
           );
         }
@@ -250,8 +215,56 @@ export const getRelatedTours = createAsyncThunk(
         state.loading = false;
         state.error = action.payload.message;
       },
-    
+    //   [likeTour.pending]: (state, action) => {},
+    //   [likeTour.fulfilled]: (state, action) => {
+    //     state.loading = false;
+    //     const {
+    //       arg: { _id },
+    //     } = action.meta;
+    //     if (_id) {
+    //       state.tours = state.tours.map((item) =>
+    //         item._id === _id ? action.payload : item
+    //       );
+    //     }
+    //   },
+    //   [likeTour.rejected]: (state, action) => {
+    //     state.error = action.payload.message;
+    //   },
+  
+      [searchTours.pending]: (state, action) => {
+        state.loading = true;
+      },
+      [searchTours.fulfilled]: (state, action) => {
+        state.loading = false;
+        state.projects = action.payload;
+      },
+      [searchTours.rejected]: (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      },
+      [getToursByTag.pending]: (state, action) => {
+        state.loading = true;
+      },
+      [getToursByTag.fulfilled]: (state, action) => {
+        state.loading = false;
+        state.tagTours = action.payload;
+      },
+      [getToursByTag.rejected]: (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      },
+      [getRelatedTours.pending]: (state, action) => {
+        state.loading = true;
+      },
+      [getRelatedTours.fulfilled]: (state, action) => {
+        state.loading = false;
+        state.relatedTours = action.payload;
+      },
+      [getRelatedTours.rejected]: (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
+      },
     
     },
   });
-  export default vacationSlice.reducer;
+  export default userSlice.reducer;

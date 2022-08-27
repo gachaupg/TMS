@@ -22,6 +22,8 @@ import expenses from './routes/expenses.js'
 import specific  from './routes/specificVacations.js'
 import specificRouter  from './routes/specificComplain.js'
 import servicesRouter  from './routes/services.js'
+import userCrudRouter  from './routes/userCrud.js'
+
 //twilio requirements -- Texting API .js
 // const accountSid = '___YOUR___ACCOUNT__SID';
 // const authToken = '___YOUR___AUTHENTICATION__TOKEN'; 
@@ -53,6 +55,7 @@ app.use('/caretakercomplain', complainRouter)
 app.use('/start/vacation', specific)
 app.use('/start/complain', specificRouter)
 app.use('/start/services', servicesRouter)
+app.use('/usercrud', userCrudRouter)
 
 app.get("/", (req, res) => {
   res.send("Welcome to tour API");

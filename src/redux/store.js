@@ -9,6 +9,7 @@ import noticeReducer from './features/caretaker'
 import caraetakervacationReducer from "./features/caretakerVacation";
 import caretakercomplainReducer from "./features/Caretakercomment";
 import expenseReducer from './features/expenses'
+import userReducer from './features/userCrudSlice'
 
 export default configureStore({
   reducer: {
@@ -22,5 +23,6 @@ export default configureStore({
     expense:expenseReducer,
     caretakercomplain:caretakercomplainReducer,
     caretakervacation:caraetakervacationReducer,
+    user:userReducer,
   },
 });

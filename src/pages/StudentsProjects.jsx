@@ -62,27 +62,49 @@ const handleDelete = (id) => {
   }
 };
 
-const handleSearch= async (event)=>{
-  event.preventDefault()
-  let key =event.target.value
-  if(key){
-   let result= await fetch(`http://localhost:5000/project/search${key}`)
-result=await result.json()
-result.sort(compare)
-if(result){
-  setTours(result)
-  
-} console.log('result',result);
-  }else{
-    setTours()
-  }
+const [users,setUsers]=useState([]);
+   
+    useEffect(()=>{
+        async function fetchData(){
+        try {
+          const res= await axios.get(`http://localhost:5000/project/userProjects/${userId}`)
+          
+        res.data.sort(compare)
+        setTours(  res.data)
+        
+        
+        } catch (error) {
+          console.log(error);
+          
+        }
+        }
+        fetchData()
+          },[])
 
 
-}
+          const handleSearch= async (event)=>{
+            event.preventDefault()
+            let key =event.target.value
+            if(key){
+             let result= await fetch(`http://localhost:5000/project/search${key}`)
+          result=await result.json()
+          if(result){
+            setTours(result)
+            
+          } console.log(` `,result);
+            }else{
+              setTours()
+            }
+          
+          
+          }
+
+
   return (
     <div style={{marginTop:'8rem'}}>
 
-
+       
+    
 <div className="tenant-header">
             
             <Link to='/responses'>
@@ -95,14 +117,18 @@ if(result){
                    Operational costs
                 </button>
             </Link>
-
+            <Link to='/users'>
+                <button className='btn'>
+                  All tenants
+                </button>
+            </Link>
         
     </div>
       <h4 style={{color:'whitesmoke'}}>Rent progress</h4>
-
       <div className='search'>      
       <input type="text" placeholder='Search by house number' onChange={handleSearch} />
 </div> 
+      
     <div className="tenant-admin-page">
       
    
@@ -120,7 +146,7 @@ if(result){
 
 
 
-        {projects && projects?.map((items)=>{
+        {tours && tours?.map((items)=>{
           return(
             
             <div className='datas'>

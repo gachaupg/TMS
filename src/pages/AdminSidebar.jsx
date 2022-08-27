@@ -224,7 +224,8 @@ React.useEffect(()=>{
     
     
     <td>{item.houseNo}</td>
-    <td>{item.name}</td>
+
+   {!item.balance? <td>{item.name}</td>: <td className='color2'>{item.name}</td>}
     <td>{item.amount}</td>
     <td>{item.wifi}</td>
     <td>{item.waterFee}</td>
