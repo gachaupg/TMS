@@ -42,7 +42,7 @@ const Responses = () => {
   return (
     <>
     
-    <h4 className='headers'>Tenant Responses</h4>
+    <h4 className='headers'>Complains and Compliments</h4>
 
     <Link to='/Caretakercomment'>
         <button className="btn">
@@ -59,7 +59,7 @@ const Responses = () => {
               <p>Name: {items.name}</p>
               
               <p> houseNo: {items.houseNo}</p>
-              <p>complain {items.complain}</p>
+              <p>complain/compliment: {items.complain}</p>
               
               <button className="btn" onClick={() => handleDelete(items._id)}>
                 delete

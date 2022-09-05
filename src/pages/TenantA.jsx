@@ -95,7 +95,7 @@ const TenantA = () => {
     
    
 
-    <h4 className='headers'>Rent Progress</h4>
+    <h4 className='headers'>Payment History</h4>
     <div>{i.digits}</div>
 {i.digits===currentMonth1 ?(
    <div  className='rent-page'>

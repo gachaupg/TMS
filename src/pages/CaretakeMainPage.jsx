@@ -44,12 +44,12 @@ const CaretakeMainPage = () => {
            
             <Link to='/rents'>
                     <button className="btn">
-                    Rent and Messages
+                    Payment History and Messages
                     </button>
                 </Link>
                 <Link to='/addproject'>
                     <button className="btn">
-                    Rent Payment
+                    Payment Details
                     </button>
                 </Link>
                
@@ -59,7 +59,7 @@ const CaretakeMainPage = () => {
             <div className="tenant-header">
             <Link to='/notice'>
                     <button className="btn">
-                    Notice To Rent Payment
+                     water bill and maintanance charges
                     </button>
                 </Link>
 
@@ -72,7 +72,7 @@ const CaretakeMainPage = () => {
      </Link>  */}
                 <Link to='/vacations'>
                     <button className="btn">
-                    Notice to Vacate
+                    Notice to Vacate/Contract Renewal
                     </button>
                 </Link>
             

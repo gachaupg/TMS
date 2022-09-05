@@ -90,13 +90,13 @@ const handleSubmit= (e)=>{
        <input className='form-input' type='text'  placeholder='House number' onChange={(e)=> setMilestone({...mile , apartment:e.target.value})} /> 
       <input className='form-input' type='text'  placeholder='Remarks' onChange={(e)=> setMilestone({...mile , servedBy:e.target.value})} /> 
 
-      <input className='form-input' type='number'  placeholder='Phone Number of the Engineer' onChange={(e)=> setMilestone({...mile , phoneNo:e.target.value})} />
+      <input className='form-input' type='number'  placeholder='Phone Number of the Repair Person' onChange={(e)=> setMilestone({...mile , phoneNo:e.target.value})} />
       
       </div>
 </div>
       <button className='btn'>
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-      ADD
+      Submit
     </button>
     <div className="icon">
       view

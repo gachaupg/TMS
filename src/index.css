@@ -215,13 +215,14 @@ h4:after {
 }
 .btn{
   height: 2.5rem;
-  width: 12.8rem;
+  width: 17.8rem;
   background-image: url('./Assets/wood1.jpg') !important;
   /* background-color: #da89bc !important; */
   border-radius: 1rem;
   color: rgb(255, 254, 254) !important;
  
 }
+ 
 .btns{
   height: 2rem;
   width: 10rem;
@@ -415,11 +416,10 @@ justify-content: space-between;
 .rent-page{
   display: flex;
   flex-direction: row;
+  width: 100%;
+  gap: 5rem;
   flex-wrap: wrap;
-  gap: 3rem;
-  align-items: center;
- 
-  padding: 40px;
+  margin-top: 1rem;
 }
 .rent-pages{
   display: flex;
@@ -435,7 +435,7 @@ justify-content: space-between;
   background-color: #3d383b;
   align-items: center;
   background-image: url('./Assets/wood1.jpg') !important;
-
+margin-bottom: 0.3rem;
 }
 .rent-main{
   background-color: #3d383b;
@@ -454,6 +454,12 @@ justify-content: space-between;
   flex-direction: row;
   gap: 5rem;
 }
+.summary{
+  margin-top: 7rem;
+}
+.summarys{
+  display: flex;
+}
 .rent-card{
   display: flex;
  align-items: center;
@@ -462,11 +468,14 @@ justify-content: space-between;
  padding: 2rem;
  font-size: 17px;
  justify-content: center;
-  background-color:rgb(90, 39, 5);
-  width: 40%;
-  color: rgb(246, 205, 123);
+  background-color:rgb(80, 55, 38);
+width: 30rem;
+  color: rgb(250, 248, 244);
   /* flex-direction: column; */
   /* margin-top: 100px; */
+}
+@media screen and (max) {
+  
 }
 .headers{
   margin-top: 7rem;
@@ -868,4 +877,16 @@ background-color: #fdfcfd;
 .user-icon{
   color: #f93154;
   font-size: 2rem;
+}
+.topbar{
+  background-color: #cab0c0;
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  text-align: center;
+
+}
+.email{
+  margin-left: 2rem;
+  text-align: center;
 }

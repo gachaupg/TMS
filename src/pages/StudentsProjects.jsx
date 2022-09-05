@@ -109,22 +109,24 @@ const [users,setUsers]=useState([]);
             
             <Link to='/responses'>
                 <button className='btn'>
-                Responses
+                Payment Screenshots
                 </button>
             </Link>
-            <Link to='/expenses'>
-                <button className='btn'>
-                   Operational costs
-                </button>
-            </Link>
+            
             <Link to='/users'>
                 <button className='btn'>
                   All tenants
                 </button>
             </Link>
+            <Link to='/notification'>
+                <button className='btn'>
+                  Notifications
+                </button>
+            </Link>
+            
         
     </div>
-      <h4 style={{color:'whitesmoke'}}>Rent progress</h4>
+      <h4 style={{color:'whitesmoke'}}>Payment History</h4>
       <div className='search'>      
       <input type="text" placeholder='Search by house number' onChange={handleSearch} />
 </div> 

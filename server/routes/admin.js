@@ -11,6 +11,73 @@ import VacationModal from "../models/vacation.js";
 const router = express.Router();
 
 
+router.get ('/allpayments',  async (req,res)=>{
+    const previosMonth=moment()
+    .month(moment().month()-1)
+    .month(moment().month()-2)
+    .set('date',1)
+    .format('YYYY-MM-DD HH:mm:ss');
+    // res.status(200).send(previosMonth)
+    try {
+        const users= await TourModal.aggregate([
+            { $match : {} },
+            // {
+            //     $group:{
+            //         _id:'$month',
+            //         total:{$sum:1},
+                    
+            //     }
+            // }
+            
+            // { $match : { isAdmin : true } },
+            // { $match : { supervisor : true } },
+        ]);
+        res.status(200).send(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+
+
+ })
+ router.get ('/t',  async (req,res)=>{
+    const previosMonth=moment()
+    .month(moment().month()-1)
+    .month(moment().month()-2)
+    .set('date',1)
+    .format('YYYY-MM-DD HH:mm:ss');
+    // res.status(200).send(previosMonth)
+    try {
+        const users= await TourModal.aggregate([
+            { $match : {createdAt:{$gte:new Date(previosMonth)} } },
+            {
+                $project:{
+                    month:{$month:'$createdAt'}
+                }
+            },
+            
+            
+            {
+                $group:{
+                    _id:'$month',
+                    total:{$sum:1},
+                    
+                }
+            }
+            
+            // { $match : { isAdmin : true } },
+            // { $match : { supervisor : true } },
+        ]);
+        res.status(200).send(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+
+
+ })
+
+
 router.get ('/',  async (req,res)=>{
     const previosMonth=moment()
     .month(moment().month()-1)
@@ -104,7 +171,8 @@ router.get ('/totalrenta',  async (req,res)=>{
                     total4:"$arrears",
                     total5:"$penalties",
                     total6:"$aptType",
-                    total7:"$payment"
+                    total7:"$payment",
+                    total8:"$balance",
                 }
             },
             
@@ -118,8 +186,8 @@ router.get ('/totalrenta',  async (req,res)=>{
                     total4:{$sum:"$total4"},
                     total5:{$sum:"$total5"},
                     total6:{$sum:"$total6"},
-                    total7:{$sum:"$total7"}
-                    
+                    total7:{$sum:"$total7"},
+                    total8:{$sum:"$total8"},
                 }
             }
             
@@ -211,7 +279,43 @@ router.get ('/totalrenta',  async (req,res)=>{
     }
 
  })
+ router.get ('/totalbill',  async (req,res)=>{
+    const previosMonth=moment()
+    .month(moment().month()-1)
+    .month(moment().month()-2)
+    .set('date',1)
+    .format('YYYY-MM-DD HH:mm:ss');
+    // res.status(200).send(previosMonth)
+    try {
+        const users= await TourModal.aggregate([
+            { $match : {createdAt:{$gte:new Date(previosMonth)} } },
+            {
+                $project:{
+                    month:{$month:'$createdAt'},
+                    total:{$sum:["$amount","$payment","$waterFee","$arrears","$penalties","$wifi","$balance","$aptType"]}
+                    
+                }
+            },
+            
+            
+            {
+                $group:{
+                    _id:'$month',
+                    count:{$sum:"$total"}
+                    
+                }
+            }
+            
+            // { $match : { isAdmin : true } },
+            // { $match : { supervisor : true } },
+        ]);
+        res.status(200).send(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
 
+ })
  router.get ('/totalwater',  async (req,res)=>{
     const previosMonth=moment()
     .month(moment().month()-1)
@@ -328,14 +432,7 @@ router.get ('/rent',  async (req,res)=>{
     try {
         const users= await TourModal.aggregate([
             { $match : { } },
-            {
-                $group:{
-                    _id:'$amount',
-                    
-                    total:{$sum:1}
-                }
-            }
-            
+           
             // { $match : { isAdmin : true } },
             // { $match : { supervisor : true } },
         ]);
@@ -1065,12 +1162,10 @@ router.get ('/charts',  async (req,res)=>{
     // res.status(200).send(previosMonth)
     try {
         const users= await TourModal.aggregate([
-            { $match : { } },
+            { $match : {}  },
+
             
-                
             
-            // { $match : { isAdmin : true } },
-            // { $match : { supervisor : true } },
         ]);
         res.status(200).send(users);
     } catch (error) {

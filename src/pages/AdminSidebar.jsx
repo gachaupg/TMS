@@ -6,6 +6,7 @@ import { useState } from 'react';
 import moment from 'moment';
 import { format } from 'timeago.js';
 import { useDispatch, useSelector } from "react-redux";
+import * as timeago from 'timeago.js';
 
 
 const columns = [
@@ -29,6 +30,7 @@ const [totalwifi,setTotalWifi]=useState([])
 const [date,setDate]=useState([])
 const [totalwater,setTotalWater]=useState([])
 const [users,setTotalWaters]=useState([])
+const[products,setproducts]=useState([])
 const { user } = useSelector((state) => ({ ...state.auth }));
 const X=19
 function compare(a,b){
@@ -40,7 +42,20 @@ function compare(a,b){
   }return 0
 }
 
-
+React.useEffect(()=>{
+  async function fetchData(){
+  try {
+    const res= await axios.get('http://localhost:5000/project')
+    
+    setproducts(  res.data)
+    console.log('new data',products.data?.totalTours);
+   } catch (error) {
+    console.log(error);
+    
+  }
+  }
+  fetchData()
+    },[])
 React.useEffect(()=>{
   async function fetchData(){
   try {
@@ -64,11 +79,12 @@ React.useEffect(()=>{
     try {
       const res= await axios.get('http://localhost:5000/stats/chartss');
       res.data.sort(compare)
-      setTours(  res.data)
-      setTotalWaters(res.data.map[0].createdAt)
+      const result = res.data.filter((_, index) => index < 21);
+                  console.log('result',result);
+
+      setTours(  result)
         
       
-      console.log('hey',tours);
      } catch (error) {
       console.log(error);
 
@@ -86,8 +102,7 @@ React.useEffect(()=>{
       const res= await axios.get('http://localhost:5000/stats/totalrentb')
       res.data.sort(compare)
       setTotal(  res.data)
-      console.log(res.data[0].houseNo);
-      console.log('hey',total);
+     
      } catch (error) {
       console.log(error);
 
@@ -104,7 +119,7 @@ React.useEffect(()=>{
           const res= await axios.get('http://localhost:5000/stats/totalwifi')
           setTotalWifi(  res.data)
           
-          console.log('hey',totalwifi);
+          ;
          } catch (error) {
           console.log(error);
     
@@ -121,7 +136,7 @@ React.useEffect(()=>{
               const res= await axios.get('http://localhost:5000/stats/totalwater')
               res.data.sort(compare)
               setTotalWater(  res.data)
-              console.log(res.data[0]._id);
+              
              } catch (error) {
               console.log(error);
         
@@ -136,8 +151,10 @@ React.useEffect(()=>{
                 try {
                   const res= await axios.get('http://localhost:5000/expenses')
                   res.data.sort(compare)
-                  setExpenses(  res.data)
-                  console.log('expenses',expenses);
+                  const result = res.data.filter((_, index) => index <= 1);
+                  console.log('result',result);
+                  setExpenses(  result)
+                  
                  } catch (error) {
                   console.log(error);
             
@@ -147,16 +164,20 @@ React.useEffect(()=>{
                 }
                 fetchData()
                   },[])
+
+                 
+                  
+                  
     
-
-
+                  const dates = new Date();
+// console.log(dates.toLocaleDateString('en-GB'));
       const rows =  [
         
           
         {
          
           digits:date[0]?._id,
-        
+        length:tours.length
          
         },
       ]
@@ -176,7 +197,13 @@ React.useEffect(()=>{
     // </div>
 
     <div className='app-container'>
-     
+     {/* {products.map((i)=>{
+      return(
+        <div>
+          {i.length}
+        </div>
+      )
+     })} */}
 
      {rows.map((i)=>{
       return(
@@ -212,7 +239,7 @@ React.useEffect(()=>{
 </thead>
 
 
-
+{/* {tours.length<25?"hello":} */}
   {tours && tours?.map((item)=>{
 
     return(
@@ -221,9 +248,11 @@ React.useEffect(()=>{
 
       <tr>
         <td>{format(item.createdAt)}</td>
-    
-    
-    <td>{item.houseNo}</td>
+       
+        {/* hhh {item.createdAt};  */}
+        {/* {timeago.format(i.digits)};  */}
+   {/* mm {moment().format()}*/}
+    <td>{item.houseNo}</td> 
 
    {!item.balance? <td>{item.name}</td>: <td className='color2'>{item.name}</td>}
     <td>{item.amount}</td>
@@ -250,7 +279,6 @@ React.useEffect(()=>{
 
   <>
   
-  <p>{format(item.createdAt)}</p>
   <thead>
   <tr>
 
@@ -315,7 +343,6 @@ React.useEffect(()=>{
 
 {item._id===i.digits?(
   <>
-  <p>{format(item.createdAt)}</p>
   <thead>
     <tr>
     
@@ -367,8 +394,14 @@ React.useEffect(()=>{
   </tbody>
   <tbody>
   <tr>
+     <td>Balances</td>
+     <td>{item.total8}</td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
      <td>Total Repayments</td>
-   <th>{item.total3+item.total+item.total2+item.total4+item.total5+item.total6+item.total7}</th> 
+   <th>{item.total3+item.total+item.total2+item.total4+item.total5+item.total6+item.total7+item.total8}</th> 
     </tr>
   
   
@@ -382,7 +415,7 @@ React.useEffect(()=>{
               <div>
                 
                   <div>
-                    <th>{(item.total3+item.total+item.total2+item.total4+item.total5+item.total6)-(i.count)}</th> 
+                    <th>{(item.total3+item.total+item.total2+item.total4+item.total5+item.total6+item.total7+item.total8)-(i.count)}</th> 
                   </div>
                
                

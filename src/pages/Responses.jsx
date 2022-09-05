@@ -74,13 +74,12 @@ const Responses = () => {
 
 
 
-    <h4 className='headers'>Tenant Responses</h4>
+    <h4 className='headers'>Payment Screenshots</h4>
 
     {rows.map((i)=>{
       return(
         <>
-    month of {i.digits}
-    {i.digits===currentMonth1?(
+    
         
         
     <div  className='rent-page'>
@@ -93,21 +92,21 @@ const Responses = () => {
 <p>Name: {items.name}</p>
               
               <p> houseNo: {items.houseNo}</p>
- Rent screenshot
+ payment confirmation screenshot
               <img src={items.imageFile1} alt="" className="img" />
-              
+{/*               
               Water screenshot
               <img src={items.imageFile2} alt="" className="img" />
               Wifi screenshot
               <img src={items.imageFile3} alt="" className="img" />
               
-              
+               */}
              
               </div>
       )
     })}
     </div>
-    ):null}
+    
     </>
       )
 })}

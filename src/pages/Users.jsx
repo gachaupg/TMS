@@ -54,7 +54,7 @@ const Users = () => {
         return(
           <div className='all-users'>
 
-            0
+          
         <p> Name:    {user.name}</p>
        <p>Email:  {user.email}</p> 
           <p>Phone:{user.phone}</p>

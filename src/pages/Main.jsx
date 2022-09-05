@@ -92,6 +92,14 @@ if(user?.result?.isAdmin){
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
           }
+          to="/main/admin"
+        >
+       <p style={{color:'black'}}>Summary</p> 
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "link-active" : "link-inactive"
+          }
           to="/main/admincaretaker"
         >
        <p style={{color:'black'}}>Maintanance</p> 
@@ -133,17 +141,7 @@ if(user?.result?.caretaker ){
          
     </div>
     <div className="left">
-      <h4>Instructions</h4>
-        {/* <Link to='/addProject'>
-           <button className="btn">Add a Project</button> 
-        </Link> */}
-        
-        {/* <button className="btns">Not allocated yet ...</button> */}
-        <p>
-        <li>Rent Should be paid before Date 5.</li> <br></br> <li>Failure to pay Rent Within The set A penalty is raised</li><br></br>
-
- <br></br> <li>Complains And vacations should be done Through Vacation and Complain Page</li> <br></br><li>Vacation Notice should be done one month prior to vacation date</li> <br></br>
-        </p>
+     
     </div>
    {/* {user?.result?.isAdmin?'hello' :'not admin'} */}
     </div>

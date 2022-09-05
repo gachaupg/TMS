@@ -74,10 +74,10 @@ return (
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
     </div>
     <div className="rent-split">
-    <input className='form-input' type='text' placeholder='Contract Renewal' onChange={(e)=> setUser({...users , contractRenewal:e.target.value})} required/>
+    <input className='form-input' type='text' placeholder='Notice to vacate/response' onChange={(e)=> setUser({...users , contractRenewal:e.target.value})} required/>
 
     <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
-    <input className='form-input' type='text' placeholder='Notice to vacate' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
+    <input className='form-input' type='text' placeholder='remarks' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
     {/* <input className='form-input' type='text' placeholder='comment / compliment' onChange={(e)=> setUser({...users ,remTime:e.target.value})}/> */}
 </div>
       {/* <div className="d-flex justify-content-start">

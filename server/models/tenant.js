@@ -8,6 +8,7 @@ const tourSchema = mongoose.Schema({
   imageFile1:{type:String},
   imageFile2:{type:String},
   imageFile3:{type:String},
+  imageFile4:{type:String},
   arrearssms: {type:String},
   penaltysms: {type:String},
   wifisms: {type:String},

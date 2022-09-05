@@ -16,6 +16,7 @@ import { setLogout } from "../redux/features/authSlice";
 import { useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
 import { Link } from "react-router-dom";
+import Topbar from "./Topbar";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -39,6 +40,8 @@ const Header = () => {
   };
 
   return (
+    <>
+    {/* <Topbar/> */}
     <MDBNavbar fixed="top" expand="lg" style={{ backgroundColor: "#CC9966" }}>
       <MDBContainer>
         <MDBNavbarBrand
@@ -116,7 +119,7 @@ const Header = () => {
               </h5> */}
 
     </MDBNavbar>
-  );
+ </> );
 };
 
 export default Header;

@@ -65,8 +65,6 @@ const [date,setDate]=useState([])
         <div>{currentMonth===i.digits+4 ?
             <>
             <p className="icon">NOTICE! NOTICE! </p>
-
-            <br />
             <p className="text-rem"> hello {user?.result?.name}your contact remains two months</p> 
             <Link to='/vacation'>  Click here to Review</Link></>: null}</div>
     )
@@ -74,12 +72,13 @@ const [date,setDate]=useState([])
         <div className="tenant-header">
         {/* {user?.result?.createdAt}
 {currentMonth} */}
+ <Link className='apartment' to='/rentals'>  <button className="btn">Total Payments</button></Link> 
 
  <Link className='apartment' to='/rent'>  <button className="btn">Dashboard</button></Link> 
  <Link to='/tenantcreate'>
     
                     <button className='btn'>
-                   Rent
+                   payment Screenshot
                     </button>
                 </Link>
 
@@ -95,7 +94,7 @@ const [date,setDate]=useState([])
                 </Link>
                 <Link to='/complain'>
                     <button className='btn'>
-                        add a complain
+                       complain/compliments
                     </button>
                 </Link>
 

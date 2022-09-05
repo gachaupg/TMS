@@ -131,6 +131,30 @@ import Services4C from "./pages/Services/Services4C";
 import Services4D from "./pages/Services/Services4D";
 import Services5B from "./pages/Services/Services5B";
 import Users from "./pages/Users";
+import Topbar from "./components/Topbar";
+import Summarys from "./pages/Summarys";
+import TenantsSummary from "./pages/TenantsSummary";
+import AdminAll from './pages/AdminAll'
+import SummaryG1 from "./pages/Summary/SummaryG1";
+import SummaryG2 from "./pages/Summary/SummaryG2";
+import Summary1A from "./pages/Summary/Summary1A";
+import Summary1B from "./pages/Summary/Summary1B";
+import Summary1C from "./pages/Summary/Summary1C";
+import Summary1D from "./pages/Summary/Summary1D";
+import Summary2A from "./pages/Summary/Summary2A";
+import Summary2B from "./pages/Summary/Summary2B";
+import Summary2C from "./pages/Summary/Summary2C";
+import Summary2D from "./pages/Summary/Summary2D";
+import Summary3A from "./pages/Summary/Summary3A";
+import Summary3B from "./pages/Summary/Summary3B";
+import Summary3C from "./pages/Summary/Summary3C";
+import Summary3D from "./pages/Summary/Summary3D";
+import Summary4A from "./pages/Summary/Summary4A";
+import Summary4B from "./pages/Summary/Summary4B";
+import Summary4C from "./pages/Summary/Summary4C";
+import Summary4D from "./pages/Summary/Summary4D";
+import Summary5B from "./pages/Summary/Summary5B";
+import Notifications from "./pages/Notifications";
 function App() {
   
   const dispatch = useDispatch();
@@ -140,8 +164,11 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
+    <>
     <BrowserRouter>
+    
     <ToastContainer/>
+    {/* <Topbar/> */}
     <Header />
   
     {/* <AdminSidebar/> */}
@@ -157,7 +184,7 @@ function App() {
           <Route path="/editTour/:id" element={<StudentProjectCreate />} />
               <Route path="/main" element={<Main />} >
               <Route path="summary" element={< Summary/>} />
-             
+             <Route path="admin" element={<AdminAll/>}/>
               <Route path="admintenants" element={<AdminTenants/>} />
              <Route path="admintotalrent" element={<AdminTotalRent/>} />
              <Route path="admincaretaker" element={<AdminCaretaker/>} />
@@ -284,13 +311,38 @@ function App() {
              <Route path="/Caretakercomment" element={<CaretakerComplain/>} />
              <Route path="/responses" element={<Responses/>} />
              <Route path="/expenses" element={<Expenses/>} />
-
+              <Route path="/summarys" element={<Summarys/>}/>
+             <Route path="/rentals" element={<TenantsSummary/>}/>
              {/* <Route path="/adminsidebar" element={<AdminSidebar/>} /> */}
              {/* <Route path="/main" element={<Admin />}/> */}
+             {/* //summary */}
+
+             <Route path="/summaryg1" element={<SummaryG1/>}/>
+             <Route path="/summaryg2" element={<SummaryG2/>}/>
+             <Route path="/summary1a" element={<Summary1A/>}/>
+             <Route path="/summary1b" element={<Summary1B/>}/>
+             <Route path="/summary1c" element={<Summary1C/>}/>
+             <Route path="/summary1d" element={<Summary1D/>}/>
+             <Route path="/summary2a" element={<Summary2A/>}/>
+             <Route path="/summary2b" element={<Summary2B/>}/>
+             <Route path="/summary2c" element={<Summary2C/>}/>
+             <Route path="/summary2d" element={<Summary2D/>}/>
+             <Route path="/summary3a" element={<Summary3A/>}/>
+             <Route path="/summary3b" element={<Summary3B/>}/>
+             <Route path="/summary3c" element={<Summary3C/>}/>
+             <Route path="/summary3d" element={<Summary3D/>}/>
+             <Route path="/summary4a" element={<Summary4A/>}/>
+             <Route path="/summary4b" element={<Summary4B/>}/>
+             <Route path="/summary4c" element={<Summary4C/>}/>
+             <Route path="/summary4d" element={<Summary4D/>}/>
+             <Route path="/summary5b" element={<Summary5B/>}/>
+             <Route path="/notification" element={<Notifications/>}/>
+
 
 </Routes> 
      {/* <Footer/> */}
     </BrowserRouter>
+    </>
   );
 }
 

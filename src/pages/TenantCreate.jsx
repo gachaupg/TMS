@@ -43,7 +43,8 @@ const StudentProjectCreate = () => {
     penalties:'',
     imageFile3:'',
     imageFile2:'',
-    imageFile1:''
+    imageFile1:'',
+    imageFile4:''
                })
    const handleSubmit= (e)=>{
     
@@ -104,10 +105,13 @@ const handleNumber= (e)=>{
 return (
  <>
   {/* <ToastContainer /> */}
-
+  <div className="summarys">
+  <div className="summary">
+    
+  </div>
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'6rem'}} className='form'>
   
-  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':'Pay Rent'}</h2>
+  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':' Rent/water bill / wifi fee '}</h2>
     <div className="main-rent-create">
  
 {/* <Projects/> */}
@@ -116,7 +120,7 @@ return (
     <input className='form-input' type='text'  placeholder='Name' onChange={(e)=> setUser({...users , name:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
    
-      <h5 className='screenshot'> rent mpesa screenshot</h5>
+      <h5 className='screenshot'> payment confirmation screenshot</h5>
               <FileBase
               className='FileBase'
                 type="file"
@@ -125,7 +129,8 @@ return (
                 onDone={({ base64 }) =>
                   setUser({ ...users, imageFile1: base64 })
                 }
-              /> 
+              /> </div>
+              {/* <div className="rent-split">
                     <h5 className='screenshot'> water bill mpesa screenshot</h5>
 
               <FileBase
@@ -146,7 +151,17 @@ return (
                   setUser({ ...users, imageFile3: base64 })
                 }
               />
-    </div>
+               <h5 className='screenshot'> penalty mpesa screenshot</h5>
+
+<FileBase
+  type="file"
+  placeholder='mpesa screenshot'
+  multiple={false}
+  onDone={({ base64 }) =>
+    setUser({ ...users, imageFile4: base64 })
+  }
+/> */}
+    {/* </div> */}
     {/*      */}
      
 
@@ -159,7 +174,7 @@ return (
 </div>
 <button className='btn' onClick>
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-      ADD
+      Submit
     </button>
 
 
@@ -170,7 +185,7 @@ return (
        */}
 </StyledForm>
    
-
+</div>
     </>
   
     

@@ -107,15 +107,17 @@ return (
 <div className="rent-split-start">
     <input className='form-input' type='number'  placeholder='Security fee' onChange={(e)=> setUser({...users , security:e.target.value})} required/>
     <input className='form-input' type='number'  placeholder='electricity Charges' onChange={(e)=> setUser({...users , electricityCharges:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder='water caharges' onChange={(e)=> setUser({...users , waterCharges:e.target.value})} required/>
+    <input className='form-input' type='number' placeholder='water charges' onChange={(e)=> setUser({...users , waterCharges:e.target.value})} required/>
     <input className='form-input' type='number' placeholder=' caretaker salary' onChange={(e)=> setUser({...users ,careTakerSalary:e.target.value})}/>
-     <input className='form-input' type='number' placeholder=' maintanance salary' onChange={(e)=> setUser({...users ,maintananceSalary:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder='wifi' onChange={(e)=> setUser({...users ,wifi:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder='clening materials' onChange={(e)=> setUser({...users ,clean:e.target.value})} required/>
-
-
+    
     </div>
-   
+    <div className="rent-split">
+     <input className='form-input' type='number' placeholder=' maintanance Charges' onChange={(e)=> setUser({...users ,maintananceSalary:e.target.value})} required/>
+    <input className='form-input' type='number' placeholder='wifi bill' onChange={(e)=> setUser({...users ,wifi:e.target.value})} required/>
+    <input className='form-input' type='number' placeholder='cleaning materials' onChange={(e)=> setUser({...users ,clean:e.target.value})} required/>
+
+
+   </div>
     
     
    
@@ -125,7 +127,7 @@ return (
 </div>
 <button className='btn' onClick>
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-      ADD
+      Submit
     </button>
 
 

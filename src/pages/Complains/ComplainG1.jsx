@@ -35,11 +35,10 @@ const ComplainA = () => {
       return(
         <div className='rent-card'>
 
-              <p>Name: {items.name}</p>
+              <p className='rentss'><p>Name:</p>  {items.name}</p>
+              <p className='rentss'><p>HouseNo:</p>   {items.houseNo}</p>
+              <p className='rentss'><p></p>  Complain/compliment: {   items.complain}</p>
               
-              <p> Complain/compliment: {items.complain}</p>
-              <p>ApartMent: {items.apartment}</p>
-              <p> HouseNo: {items.houseNo}</p>
              
               </div>
       )

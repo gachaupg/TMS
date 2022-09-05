@@ -41,6 +41,10 @@ export const createCaretakerVacation = (formData) => API.post("/caretakervacatio
 // export const getTenantByUser = (userId) => API.get(`/tenant/userProjects/${userId}`);
 
 
+export const createsummary = (formData) => API.post("/summary", formData);
+export const deleteSummary = (id) => API.delete(`/summary/${id}`);
+
+
 export const createTenant = (formData) => API.post("/tenant", formData);
 export const getTenants = () => API.get("/tenant");
 export const getTenant = (id) => API.get(`/tenant/${id}`);

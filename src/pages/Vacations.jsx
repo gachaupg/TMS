@@ -44,7 +44,7 @@ const Responses = () => {
   return (
     <>
      
-    <h4 className='headers'>Notices To Vacate</h4>
+    <h4 className='headers'>Notices To Vacate/Contract Renewal</h4>
 
     <Link to='/caretakervacation'>
         <button className="btn">
@@ -60,8 +60,10 @@ const Responses = () => {
               <p>Name: {items.name}</p>
               
               <p> houseNo: {items.houseNo}</p>
-              <p>Reason if any: {items.reason}</p>
-              <p>Contract Reabewal: {items.contractRenewal}</p>
+              
+              <p>Contract Reanewal/Notice to Vacate: {items.contractRenewal}</p>
+              <p>Remarks: {items.reason}</p>
+              <p>Vacation Date: {items.remTime}</p>
               <button className="btn" onClick={() => handleDelete(items._id)}>
                 delete
               </button>

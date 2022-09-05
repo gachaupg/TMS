@@ -38,10 +38,9 @@ const ComplainA = () => {
         <div className='rent-card'>
 
               <p>Name: {items.name}</p>
-              
+                            <p> HouseNo: {items.houseNo}</p>
+
               <p> Complain/compliment: {items.complain}</p>
-              <p>ApartMent: {items.apartment}</p>
-              <p> HouseNo: {items.houseNo}</p>
              
               </div>
       )

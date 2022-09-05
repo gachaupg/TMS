@@ -99,7 +99,7 @@ return (
 
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'6rem'}} className='form'>
   
-  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':'Notice to pay rent'}</h2>
+  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':'Water bill and Other Charges'}</h2>
     <div className="main-rent-create">
  
 {/* <Projects/> */}
@@ -109,13 +109,13 @@ return (
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
     
      <input className='form-input' type='text' placeholder='any arrears' onChange={(e)=> setUser({...users ,arrears:e.target.value})} />
-    <input className='form-input' type='text' placeholder='any penalties' onChange={(e)=> setUser({...users ,penalty:e.target.value})} />
+    {/* <input className='form-input' type='text' placeholder='any penalties' onChange={(e)=> setUser({...users ,penalty:e.target.value})} /> */}
+    <input className='form-input' type='text' placeholder='Maintanance Charges' onChange={(e)=> setUser({...users ,services:e.target.value})}/>
 
     </div>
     <div className="rent-split">
-    <input className='form-input' type='text' placeholder='any services fee' onChange={(e)=> setUser({...users ,services:e.target.value})}/>
 
-    <input className='form-input' type='text' placeholder=' previos water read' onChange={(e)=> setUser({...users ,prevReads:e.target.value})}/>
+    <input className='form-input' type='text' placeholder=' previous water read' onChange={(e)=> setUser({...users ,prevReads:e.target.value})}/>
      <input className='form-input' type='text' placeholder='current water read' onChange={(e)=> setUser({...users ,currentraed:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='unit consumed' onChange={(e)=> setUser({...users ,units:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='water bill' onChange={(e)=> setUser({...users ,waters:e.target.value})} required/>
@@ -141,7 +141,7 @@ return (
 </div>
 <button className='btn' onClick>
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-      ADD
+      Submit
     </button>
 
 

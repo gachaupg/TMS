@@ -118,7 +118,7 @@ return (
 </div>
  
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'5rem'}} className='form'>
-  <h2 style={{color:'whitesmoke'}}>Add A Complain</h2>
+  <h2 style={{color:'whitesmoke'}}>Add A Compliment / Complain</h2>
     <div className="main-rent-create">
   <div className="rent-split-start">
     {/* <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/> */}
@@ -128,7 +128,7 @@ return (
     <div className="rent-split">
     {/* <input className='form-input' type='number' placeholder='Id Number' onChange={(e)=> setUser({...users ,idNo:e.target.value})} required/> */}
     <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
-      <input className='form-input' type='text' placeholder='Complain' onChange={(e)=> setUser({...users ,complain:e.target.value})}/>
+      <input className='form-input' type='text' placeholder='Complain/Compliment' onChange={(e)=> setUser({...users ,complain:e.target.value})}/>
       {/* <div className="d-flex justify-content-start">
               <FileBase
                 type="file"
@@ -142,7 +142,7 @@ return (
               </div>
       <button className='btn' >
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-      ADD
+      Submit
     </button>
       
 </StyledForm>

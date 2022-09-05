@@ -29,21 +29,21 @@ const Responses = () => {
         },[])
   return (
     <>
-    <h4 className='headers'>Tenant Water Charges</h4>
+    <h4 className='headers'>Tenant Water Charges and Other Charges</h4>
     <div  className='rent-page'>
     {admin.map((items)=>{
       return(
         <div className='rent-card'>
 
-           <p className='rentss'>   <p className='spaces'>Name: </p> <p>{items.name}</p>  </p>
+              <p>Name: {items.name}</p>
               
               <p> houseNo: {items.houseNo}</p>
               <p>Arrears: {items.arrears}</p>
-              <p>penalty: {items.penalty}</p>
-    
+              <p>Previous Meter Read: {items.prevReads}</p>
+              <p>Current Meter Read: {items.currentraed}</p>
               <p> Unit Consumed : {items.units}</p>
               <p> Water Bill : {items.waters}</p>
-              <p> Maintanance: {items.services}</p>
+              <p> Maintanance Charges: {items.services}</p>
               <p>updated at {format(items.createdAt)}</p>
              
               </div>

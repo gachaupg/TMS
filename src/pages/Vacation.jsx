@@ -127,18 +127,28 @@ return (
       </div> 
  <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{}}>
 
-<h2 style={{color:'whitesmoke'}}>Add A  Notice To Vacate</h2>
+<h2 style={{color:'whitesmoke'}}>Add A  Notice To Vacate/contract Renewal</h2>
 <div className="main-rent-create">
   
 <div className="rent-split-start">
   {/* <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/> */}
   <input className='form-input' type='text'  placeholder='Name' onChange={(e)=> setUser({...users , name:e.target.value})} required/>
   <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
-  <input className='form-input' type='text' placeholder='Contract Renewal' onChange={(e)=> setUser({...users , contractRenewal:e.target.value})} />
+
+  <select name="" id="" onChange={(e)=> setUser({...users, contractRenewal:e.target.value})} >
+  <option value="work completed"> Select The Type of Notice</option>
+  <option value="Contract Renewal">Contract Renewal</option>
+  <option value="Notice to vacate">Notice to vacate</option>
+</select>
+<div >....</div>
+
+  {/* <input className='form-input' type='text' placeholder='Contract Renewal' onChange={(e)=> setUser({...users , contractRenewal:e.target.value})} /> */}
   </div>
   <div className="rent-split">
-  <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
-  <input className='form-input' type='text' placeholder='Notice to vacate' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
+   <h6 style={{color:'white'}}>date of vacation</h6> 
+  <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,remTime:e.target.value})} required/>
+  <input className='form-input' type='text' placeholder='Remarks' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
+  <p style={{color:'white'}}>If you want to renew the contract refer to the contract agreement instructions</p>
 </div>
   {/* <div className="d-flex justify-content-start">
             <FileBase
@@ -152,7 +162,7 @@ return (
             </div>
     <button className='btn' >
     {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-    ADD
+    Submit
   </button>
    
 

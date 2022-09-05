@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import {StyledForm} from './StyledForm'
-import { useNavigate,useParams } from 'react-router-dom';
+import { Link, useNavigate,useParams } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 // import { StyledForm } from './StyledForm'
@@ -99,11 +99,23 @@ const handleNumber= (e)=>{
 }
 return (
  <>
+ <div style={{marginTop:'7rem', display:'flex' ,gap:'2rem'}} >
+ <Link to='/expenses'>
+                <button className='btn'>
+                   Operational costs
+                </button>
+            </Link>
+            <Link to='/summarys'>
+                <button className='btn'>
+                 Tenant Total Payments
+                </button>
+            </Link>
+            </div>
   {/* <ToastContainer /> */}
 
-  <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'6rem'}} className='form'>
+  <StyledForm id='cancelCourse' onSubmit={handleSubmit} className='form'>
   
-  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':'Pay Rent'}</h2>
+  <h2 style={{color:'whitesmoke'}}>{id? 'update your values':'Payment Details Upload'}</h2>
     <div className="main-rent-create">
  
 {/* <Projects/> */}
@@ -111,8 +123,8 @@ return (
     {/* <input className='form-input' type='text'  placeholder='Apartment eg A or B or C' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/> */}
     <input className='form-input' type='text'  placeholder='Name' onChange={(e)=> setUser({...users , name:e.target.value})} required/>
     <input className='form-input' type='text' placeholder='House Number' onChange={(e)=> setUser({...users , houseNo:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder=' monthly Rentrent' onChange={(e)=> setUser({...users , amount:e.target.value})} required/>
-    <input className='form-input' type='number' placeholder='Deposits' onChange={(e)=> setUser({...users ,payment:e.target.value})}/>
+    <input className='form-input' type='number' placeholder=' monthly Rent' onChange={(e)=> setUser({...users , amount:e.target.value})} required/>
+    <input className='form-input' type='number' placeholder='Deposit' onChange={(e)=> setUser({...users ,payment:e.target.value})}/>
     {/* <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/> */}
     <input className='form-input' type='number' placeholder='arrears' onChange={(e)=> setUser({...users ,arrears:e.target.value})} />
     <input className='form-input' type='number' placeholder='Penalties' onChange={(e)=> setUser({...users ,penalties:e.target.value})} />
@@ -151,7 +163,7 @@ return (
 </div>
 <button className='btn' onClick>
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
-      ADD
+      Submit
     </button>
 
 
