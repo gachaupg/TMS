@@ -96,8 +96,8 @@ const TenantA = () => {
    
 
     <h4 className='headers'>Payment History</h4>
-    <div>{i.digits}</div>
-{i.digits===currentMonth1 ?(
+    
+
    <div  className='rent-page'>
    {admin.map((items)=>{
      return(
@@ -137,7 +137,6 @@ const TenantA = () => {
      )
    })}
    </div>
-):null}
    
  </>
     

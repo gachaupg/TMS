@@ -5,7 +5,6 @@ import moment from "moment";
 
 import axios from 'axios';
 import { getTour } from '../redux/features/projectSlice';
-import { display } from '@mui/system';
 const SingleProject = () => {
 const [users,setUsers]=useState([]);
 const dispatch = useDispatch();

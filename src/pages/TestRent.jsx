@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import axios from 'axios'
 import ApartmentA from './ApartmentA';
 import { Link, useNavigate } from 'react-router-dom';
-import Select from 'react-select'
 const TestRent = () => {
     const {user}=useSelector((state)=>({...state.auth}))
     const userId =user?.result?._id

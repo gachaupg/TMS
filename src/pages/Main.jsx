@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import {MDBBtn, MDBCol,MDBIcon, MDBContainer, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import { useDispatch, useSelector } from "react-redux";
-import Spinner from "../components/Spinner";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { getProjects, getProjectsByUser } from "../redux/features/projectSlice";
 import Projects from "../components/Projects";
